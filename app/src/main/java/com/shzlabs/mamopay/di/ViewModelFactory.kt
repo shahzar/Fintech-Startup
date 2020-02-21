@@ -3,6 +3,7 @@ package com.shzlabs.mamopay.di
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.shzlabs.mamopay.ui.home.HomeViewModel
+import com.shzlabs.mamopay.ui.onboarding.details.OnBoardingDetailsViewModel
 import com.shzlabs.mamopay.ui.home.OnBoardingViewModel
 import dagger.Binds
 import dagger.MapKey
@@ -38,6 +39,12 @@ internal abstract class ViewModelBuilder {
     @IntoMap
     @ViewModelKey(OnBoardingViewModel::class)
     internal abstract fun onBoardingViewModel(onBoardingViewModel: OnBoardingViewModel) : ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(OnBoardingDetailsViewModel::class)
+    internal abstract fun onBoardingDetailsViewModel(onBoardingDetailsViewModel: OnBoardingDetailsViewModel) : ViewModel
+
 
 }
 

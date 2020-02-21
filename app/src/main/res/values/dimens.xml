@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_xs">5dp</dimen>
+    <dimen name="margin_s">10dp</dimen>
+    <dimen name="margin_m">15dp</dimen>
+    <dimen name="margin_l">20dp</dimen>
+
+    <dimen name="padding_xs">5dp</dimen>
+    <dimen name="padding_m">10dp</dimen>
+    <dimen name="padding_l">20dp</dimen>
+
+
+    <dimen name="font_body_xs">12sp</dimen>
+    <dimen name="font_body_s">14sp</dimen>
+    <dimen name="font_body_m">16sp</dimen>
+    <dimen name="font_body_l">18sp</dimen>
+
+
+    <dimen name="page_margin_m">32dp</dimen>
+
+</resources>

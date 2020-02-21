@@ -1,9 +1,8 @@
 package com.shzlabs.mamopay
 
 import android.os.Bundle
-import android.widget.Toast
 import com.shzlabs.mamopay.ui.base.BaseActivity
-import com.shzlabs.mamopay.ui.splash.OnBoardingFragment
+import com.shzlabs.mamopay.ui.onboarding.OnBoardingFragment
 import javax.inject.Inject
 
 class MainActivity : BaseActivity() {
@@ -19,12 +18,8 @@ class MainActivity : BaseActivity() {
 
         getDiComponent().inject(this)
 
-        if (injected != null) Toast.makeText(this, injected, Toast.LENGTH_LONG).show()
+        // if (injected != null) Toast.makeText(this, injected, Toast.LENGTH_LONG).show()
     }
 
-    override fun onBackPressed() {
-        if(!NavMgr().pop(this)) {
-            finish()
-        }
-    }
+
 }

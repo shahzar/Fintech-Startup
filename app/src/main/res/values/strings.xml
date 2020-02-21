@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MamoPay</string>
+    <string name="msg_confirm_name">Please confirm your name as it appears on your ID.</string>
+    <string name="label_first_name">First Name</string>
+    <string name="label_last_name">Last Name</string>
+    <string name="label_confirm">Confirm</string>
 </resources>

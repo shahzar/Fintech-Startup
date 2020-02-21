@@ -15,17 +15,5 @@ class OnBoardingViewModel @Inject constructor (val dataManager: DataManager) : B
     val sampleData: LiveData<SampleDataModel>
         get() = _sampleData
 
-    fun getSampleData() {
-
-        ioLaunch(
-            block = {
-                dataManager.getSampleData()
-            },
-            onSuccess = {
-                _sampleData.value = it
-            }
-        )
-
-    }
 
 }
