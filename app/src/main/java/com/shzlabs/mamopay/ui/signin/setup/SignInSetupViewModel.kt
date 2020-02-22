@@ -9,22 +9,45 @@ import javax.inject.Inject
 
 class SignInSetupViewModel @Inject constructor (val dataManager: DataManager) : BaseViewModel(){
 
-    private val _sampleData = MutableLiveData<SampleDataModel>()
+    private var enteredString = ""
 
-    val sampleData: LiveData<SampleDataModel>
-        get() = _sampleData
+    //private val _
+    private val _onCodeUpdate = MutableLiveData<String>()
+    private val _onLoginSuccess = MutableLiveData<Boolean>()
+    private val _onLoginFailed = MutableLiveData<Boolean>()
 
-    fun getSampleData() {
+    val onCodeUpdate: LiveData<String>
+        get() = _onCodeUpdate
 
-        ioLaunch(
-            block = {
-                dataManager.getSampleData()
-            },
-            onSuccess = {
-                _sampleData.value = it
-            }
-        )
+    val onLoginSuccess: LiveData<Boolean>
+        get() = _onLoginSuccess
 
+
+    val onLoginFailed: LiveData<Boolean>
+        get() = _onLoginFailed
+
+    fun onNumberPress(num: Int) {
+        if (enteredString.length >= 4) return
+
+        enteredString += "$num"
+        _onCodeUpdate.value = enteredString
     }
+
+    fun onDeletePress() {
+        enteredString = enteredString.dropLast(1)
+        _onCodeUpdate.value = enteredString
+    }
+
+
+    fun onNumberPressComplete() {
+
+        if (enteredString == "5678") {
+            _onLoginSuccess.value = true
+        } else {
+            _onLoginFailed.value = true
+        }
+    }
+
+
 
 }

@@ -47,6 +47,11 @@ class StepLayout(context: Context?, attrs: AttributeSet?) : LinearLayout(context
         stepCompleted?.invoke()
     }
 
+    fun decrementStep() {
+        if (stepCounter < 1) {return}
+        viewList[--stepCounter].setBackgroundColor(context.resources.getColor(colorStateDefault))
+    }
+
     fun resetSteps() {
         for (v:View in viewList) {
             v.setBackgroundColor(context.resources.getColor(colorStateDefault))
@@ -63,6 +68,19 @@ class StepLayout(context: Context?, attrs: AttributeSet?) : LinearLayout(context
     fun setError() {
         for (v:View in viewList) {
             v.setBackgroundColor(context.resources.getColor(colorStateError))
+        }
+    }
+
+    fun setActiveCount(count: Int) {
+        for ((index, v) in viewList.withIndex()) {
+            if (index < count) {
+                v.setBackgroundColor(context.resources.getColor(colorActive))
+            } else {
+                v.setBackgroundColor(context.resources.getColor(colorStateDefault))
+            }
+        }
+        if (count >= viewList.size) {
+            stepCompleted?.invoke()
         }
     }
 

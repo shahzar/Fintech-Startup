@@ -1,5 +1,6 @@
 package com.shzlabs.mamopay.ui.signin.setup
 
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -22,17 +23,37 @@ class SignInSetupFragment : BaseFragment() {
     override fun provideLayoutId(): Int = R.layout.sign_in_setup_fragment
 
     override fun initView(view: View) {
-        numpad.setOnClickListener {
-            codeProcessLayout.incrementStep()
+//        numpad.setOnClickListener {
+//            codeProcessLayout.incrementStep()
+//        }
+
+        numpad.setOnNumberPressListener {
+            Log.d("SignInSetup", "Number pressed $it")
+            viewModel.onNumberPress(it)
+            //stepper.incrementStep()
         }
 
-        codeProcessLayout.onStepCompleteListener {
-            codeProcessLayout.setSuccess()
+        numpad.setOnDeletePressListener {
+            viewModel.onDeletePress()
+            //stepper.decrementStep()
+        }
+
+        stepper.onStepCompleteListener {
+            viewModel.onNumberPressComplete()
+            //stepper.setSuccess()
         }
     }
 
     override fun setupObservers() {
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(SignInSetupViewModel::class.java)
+
+        viewModel.onCodeUpdate.observe(viewLifecycleOwner, Observer {
+            stepper.setActiveCount(it.length)
+            numpad.showDeleteButton(it.isNotEmpty())
+        })
+
+        viewModel.onLoginSuccess.observe(viewLifecycleOwner, Observer { stepper.setSuccess() })
+        viewModel.onLoginFailed.observe(viewLifecycleOwner, Observer { stepper.setError() })
 
         viewModel.onError.observe(viewLifecycleOwner, Observer { showError(rootView, it) })
 

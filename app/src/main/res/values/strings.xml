@@ -5,4 +5,17 @@
     <string name="label_first_name">First Name</string>
     <string name="label_last_name">Last Name</string>
     <string name="label_confirm">Confirm</string>
+
+    <!--  Number-pad strings  -->
+    <string name="label_num1">1</string>
+    <string name="label_num2">2</string>
+    <string name="label_num3">3</string>
+    <string name="label_num4">4</string>
+    <string name="label_num5">5</string>
+    <string name="label_num6">6</string>
+    <string name="label_num7">7</string>
+    <string name="label_num8">8</string>
+    <string name="label_num9">9</string>
+    <string name="label_num0">0</string>
+
 </resources>

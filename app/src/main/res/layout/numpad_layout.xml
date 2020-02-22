@@ -6,71 +6,93 @@
     android:layout_gravity="center">
 
     <com.google.android.material.button.MaterialButton
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:id="@+id/num1"
+        android:layout_width="@dimen/numpad_dial_button_height"
+        android:layout_height="@dimen/numpad_dial_button_height"
         style="@style/AppTheme.ButtonNumpad"
-        android:text="1" />
+        android:text="@string/label_num1" />
 
     <com.google.android.material.button.MaterialButton
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:id="@+id/num2"
+        android:layout_width="@dimen/numpad_dial_button_height"
+        android:layout_height="@dimen/numpad_dial_button_height"
         style="@style/AppTheme.ButtonNumpad"
-        android:text="2" />
+        android:text="@string/label_num2" />
 
     <com.google.android.material.button.MaterialButton
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:id="@+id/num3"
+        android:layout_width="@dimen/numpad_dial_button_height"
+        android:layout_height="@dimen/numpad_dial_button_height"
         style="@style/AppTheme.ButtonNumpad"
-        android:text="3" />
+        android:text="@string/label_num3" />
 
     <com.google.android.material.button.MaterialButton
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:id="@+id/num4"
+        android:layout_width="@dimen/numpad_dial_button_height"
+        android:layout_height="@dimen/numpad_dial_button_height"
         style="@style/AppTheme.ButtonNumpad"
-        android:text="4" />
+        android:text="@string/label_num4" />
 
     <com.google.android.material.button.MaterialButton
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:id="@+id/num5"
+        android:layout_width="@dimen/numpad_dial_button_height"
+        android:layout_height="@dimen/numpad_dial_button_height"
         style="@style/AppTheme.ButtonNumpad"
-        android:text="5" />
+        android:text="@string/label_num5" />
 
     <com.google.android.material.button.MaterialButton
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:id="@+id/num6"
+        android:layout_width="@dimen/numpad_dial_button_height"
+        android:layout_height="@dimen/numpad_dial_button_height"
         style="@style/AppTheme.ButtonNumpad"
-        android:text="6" />
+        android:text="@string/label_num6" />
 
     <com.google.android.material.button.MaterialButton
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:id="@+id/num7"
+        android:layout_width="@dimen/numpad_dial_button_height"
+        android:layout_height="@dimen/numpad_dial_button_height"
         style="@style/AppTheme.ButtonNumpad"
-        android:text="7" />
+        android:text="@string/label_num7" />
 
     <com.google.android.material.button.MaterialButton
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:id="@+id/num8"
+        android:layout_width="@dimen/numpad_dial_button_height"
+        android:layout_height="@dimen/numpad_dial_button_height"
         style="@style/AppTheme.ButtonNumpad"
-        android:text="8" />
+        android:text="@string/label_num8" />
 
     <com.google.android.material.button.MaterialButton
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:id="@+id/num9"
+        android:layout_width="@dimen/numpad_dial_button_height"
+        android:layout_height="@dimen/numpad_dial_button_height"
         style="@style/AppTheme.ButtonNumpad"
-        android:text="9" />
+        android:text="@string/label_num9" />
 
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:id="@+id/fingerprint"
+        android:layout_width="@dimen/numpad_fingerprint_height"
+        android:layout_height="@dimen/numpad_fingerprint_height"
         android:layout_gravity="center"
         android:layout_margin="@dimen/margin_m"
         android:src="@drawable/ic_fingerprint" />
 
+
     <com.google.android.material.button.MaterialButton
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:id="@+id/num0"
+        android:layout_width="@dimen/numpad_dial_button_height"
+        android:layout_height="@dimen/numpad_dial_button_height"
         style="@style/AppTheme.ButtonNumpad"
-        android:text="0" />
+        android:text="@string/label_num0" />
+
+    <ImageView
+        android:id="@+id/backspace"
+        android:layout_width="@dimen/numpad_backspace_height"
+        android:layout_height="@dimen/numpad_backspace_height"
+        android:layout_gravity="center"
+        android:padding="@dimen/padding_l"
+        android:layout_margin="@dimen/margin_m"
+        android:src="@drawable/ic_backspace_black" />
+
 
 
 </GridLayout>

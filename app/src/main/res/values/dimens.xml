@@ -17,10 +17,12 @@
 
     <dimen name="font_headline_h3">28sp</dimen>
 
-
-
     <dimen name="page_margin_m">32dp</dimen>
-
     <dimen name="button_height">65dp</dimen>
+
+    <dimen name="numpad_dial_button_height">64dp</dimen>
+    <dimen name="numpad_fingerprint_height">40dp</dimen>
+    <dimen name="numpad_backspace_height">64dp</dimen>
+
 
 </resources>

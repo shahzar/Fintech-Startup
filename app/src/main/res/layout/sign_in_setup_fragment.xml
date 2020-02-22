@@ -17,7 +17,7 @@
         style="@style/AppTheme.Body1.m" />
 
     <com.shzlabs.mamopay.ui.customviews.StepLayout
-        android:id="@+id/codeProcessLayout"
+        android:id="@+id/stepper"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/msg_label"
@@ -25,14 +25,13 @@
         app:layout_constraintEnd_toEndOf="@id/margin_end"
         app:layout_constraintBottom_toTopOf="@id/numpad" />
 
-    <include
+    <com.shzlabs.mamopay.ui.customviews.NumpadLayout
         android:id="@+id/numpad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@id/margin_bottom"
         app:layout_constraintStart_toStartOf="@id/margin_start"
-        app:layout_constraintEnd_toStartOf="@id/margin_end"
-        layout="@layout/numpad_layout" />
+        app:layout_constraintEnd_toStartOf="@id/margin_end" />
 
     <!--  Margins  -->
     <androidx.constraintlayout.widget.Guideline
