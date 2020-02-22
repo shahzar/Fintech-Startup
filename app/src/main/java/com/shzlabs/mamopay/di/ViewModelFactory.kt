@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.shzlabs.mamopay.ui.home.HomeViewModel
 import com.shzlabs.mamopay.ui.onboarding.details.OnBoardingDetailsViewModel
 import com.shzlabs.mamopay.ui.home.OnBoardingViewModel
+import com.shzlabs.mamopay.ui.signin.setup.SignInSetupViewModel
 import dagger.Binds
 import dagger.MapKey
 import dagger.Module
@@ -44,6 +45,11 @@ internal abstract class ViewModelBuilder {
     @IntoMap
     @ViewModelKey(OnBoardingDetailsViewModel::class)
     internal abstract fun onBoardingDetailsViewModel(onBoardingDetailsViewModel: OnBoardingDetailsViewModel) : ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SignInSetupViewModel::class)
+    internal abstract fun viewModel(viewModel: SignInSetupViewModel) : ViewModel
 
 
 }

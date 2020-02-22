@@ -1,6 +1,5 @@
-package com.shzlabs.mamopay.ui.signin
+package com.shzlabs.mamopay.ui.signin.setup
 
-import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -8,14 +7,14 @@ import com.shzlabs.mamopay.R
 import com.shzlabs.mamopay.di.components.AppComponent
 import com.shzlabs.mamopay.ui.base.BaseFragment
 
-class SignInFragment : BaseFragment() {
+class SignInSetupFragment : BaseFragment() {
 
     companion object {
-        fun newInstance() = SignInFragment()
+        fun newInstance() = SignInSetupFragment()
     }
 
 
-    private lateinit var viewModel: SignInViewModel
+    private lateinit var viewModel: SignInSetupViewModel
 
     override fun injectDependencies(diComponent: AppComponent) = diComponent.inject(this)
 
@@ -24,7 +23,7 @@ class SignInFragment : BaseFragment() {
     override fun initView(view: View) {}
 
     override fun setupObservers() {
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(SignInViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(SignInSetupViewModel::class.java)
 
         viewModel.onError.observe(viewLifecycleOwner, Observer { showError(rootView, it) })
 

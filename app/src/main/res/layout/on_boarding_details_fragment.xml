@@ -11,9 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/msg_confirm_name"
-        android:textSize="@dimen/font_body_m"
-        android:textColor="@color/black60"
-        android:lineSpacingExtra="5sp"
+        style="@style/AppTheme.Body1.m"
         app:layout_constraintTop_toBottomOf="@id/margin_top"
         app:layout_constraintEnd_toEndOf="@id/margin_end"
         app:layout_constraintStart_toStartOf="@id/margin_start"/>
@@ -53,6 +51,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/confirm_button"
         android:layout_width="0dp"
         android:layout_height="@dimen/button_height"
         app:layout_constraintStart_toStartOf="@id/margin_start"

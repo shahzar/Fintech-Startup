@@ -17,6 +17,18 @@
         <item name="android:paddingBottom">@dimen/padding_l</item>
     </style>
 
+    <style name="AppTheme.Headline.H3" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="android:textSize">@dimen/font_headline_h3</item>
+        <item name="android:textColor">@color/black100</item>
+        <item name="android:lineSpacingExtra">@dimen/margin_s</item>
+    </style>
+
+    <style name="AppTheme.Body1.m" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">@dimen/font_body_m</item>
+        <item name="android:textColor">@color/black60</item>
+        <item name="android:lineSpacingExtra">@dimen/margin_xs</item>
+    </style>
+
     <style name="AppTheme.Button" parent="Widget.MaterialComponents.Button.UnelevatedButton">
         <item name="android:textColor">@color/white100</item>
         <item name="shapeAppearanceOverlay">@style/AppTheme.Button.ShapeAppearance</item>
@@ -30,5 +42,22 @@
         <item name="cornerSizeTopLeft">25dp</item>
         <item name="cornerSizeBottomLeft">25dp</item>
     </style>
+
+    <style name="AppTheme.ButtonNumpad" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:layout_margin">@dimen/margin_m</item>
+        <item name="backgroundTint">@color/white100</item>
+        <item name="android:textColor">@color/black100</item>
+        <item name="android:textSize">@dimen/font_body_l</item>
+        <item name="shapeAppearanceOverlay">@style/AppTheme.ButtonNumpad.ShapeAppearance</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+    </style>
+
+    <style name="AppTheme.ButtonNumpad.ShapeAppearance">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
 
 </resources>
