@@ -25,6 +25,10 @@ class SignInSetupFragment : BaseFragment() {
         numpad.setOnClickListener {
             codeProcessLayout.incrementStep()
         }
+
+        codeProcessLayout.onStepCompleteListener {
+            codeProcessLayout.setSuccess()
+        }
     }
 
     override fun setupObservers() {

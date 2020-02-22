@@ -16,7 +16,7 @@
         android:text="@string/msg_pin_intro"
         style="@style/AppTheme.Body1.m" />
 
-    <com.shzlabs.mamopay.ui.customviews.ProcessLayout
+    <com.shzlabs.mamopay.ui.customviews.StepLayout
         android:id="@+id/codeProcessLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
