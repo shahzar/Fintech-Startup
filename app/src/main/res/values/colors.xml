@@ -15,4 +15,9 @@
 
     <color name="white100">#FFFFFF</color>
 
+    <color name="success">#2ECC71</color>
+    <color name="failure">#F22C2C</color>
+    <color name="warning">#FFCC15</color>
+
+
 </resources>

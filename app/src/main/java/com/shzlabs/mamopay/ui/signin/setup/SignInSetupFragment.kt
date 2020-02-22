@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.shzlabs.mamopay.R
 import com.shzlabs.mamopay.di.components.AppComponent
 import com.shzlabs.mamopay.ui.base.BaseFragment
+import kotlinx.android.synthetic.main.sign_in_setup_fragment.*
 
 class SignInSetupFragment : BaseFragment() {
 
@@ -20,7 +21,11 @@ class SignInSetupFragment : BaseFragment() {
 
     override fun provideLayoutId(): Int = R.layout.sign_in_setup_fragment
 
-    override fun initView(view: View) {}
+    override fun initView(view: View) {
+        numpad.setOnClickListener {
+            codeProcessLayout.incrementStep()
+        }
+    }
 
     override fun setupObservers() {
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(SignInSetupViewModel::class.java)
