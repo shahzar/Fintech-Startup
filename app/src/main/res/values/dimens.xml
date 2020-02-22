@@ -18,4 +18,6 @@
 
     <dimen name="page_margin_m">32dp</dimen>
 
+    <dimen name="button_height">65dp</dimen>
+
 </resources>
