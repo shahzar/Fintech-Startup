@@ -5,7 +5,7 @@ import com.shzlabs.mamopay.ui.base.BaseActivity
 import com.shzlabs.mamopay.ui.onboarding.OnBoardingFragment
 import javax.inject.Inject
 
-class MainActivity : BaseActivity() {
+class OnBoardingActivity : BaseActivity() {
 
     @Inject
     lateinit var injected: String

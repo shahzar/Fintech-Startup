@@ -14,6 +14,7 @@ import com.shzlabs.mamopay.R
 import com.shzlabs.mamopay.di.components.AppComponent
 import com.shzlabs.mamopay.ui.base.BaseActivity
 import com.shzlabs.mamopay.ui.base.BaseFragment
+import com.shzlabs.mamopay.ui.home.HomeFragment
 import com.shzlabs.mamopay.util.biometric.BiometricHelper
 import com.shzlabs.mamopay.util.display.Toaster
 import kotlinx.android.synthetic.main.sign_in_setup_fragment.*
@@ -126,14 +127,12 @@ class SignInSetupFragment : BaseFragment() {
         viewModel.biometricAuthSuccess(success)
 
         if (!success && !viewModel.isPinAuthenticated()) {
-            // Move to login
-            Toaster.show(applicationContext, "Moving back to login")
+            // Moving back to pin setup
             return
         }
 
-        Toaster.show(applicationContext, "Moving to dashboard!")
         // Move to dashboard
-
+        NavMgr().pushFragment(activity as BaseActivity, HomeFragment.newInstance())
     }
 
     private fun getPromptInfo(): BiometricPrompt.PromptInfo {
