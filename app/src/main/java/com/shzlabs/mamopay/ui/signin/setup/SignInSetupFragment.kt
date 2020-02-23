@@ -61,8 +61,9 @@ class SignInSetupFragment : BaseFragment() {
             NavMgr().pushFragment(activity as BaseActivity, SignInSetupFragment.newInstance(it))
         })
 
-        viewModel.onLoginSuccess.observe(viewLifecycleOwner, Observer { stepper.setSuccess() })
-        viewModel.onLoginFailed.observe(viewLifecycleOwner, Observer { stepper.setError() })
+        viewModel.onLoginSuccess.observe(viewLifecycleOwner, Observer {
+            if (it) stepper.setSuccess() else stepper.setError()
+        })
 
         viewModel.onError.observe(viewLifecycleOwner, Observer { showError(rootView, it) })
 

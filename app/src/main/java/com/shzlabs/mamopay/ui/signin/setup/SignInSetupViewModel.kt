@@ -1,13 +1,15 @@
 package com.shzlabs.mamopay.ui.signin.setup
 
+import android.content.SharedPreferences
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.hadilq.liveevent.LiveEvent
 import com.shzlabs.mamopay.data.DataManager
+import com.shzlabs.mamopay.data.local.prefs.UserPreferences
 import com.shzlabs.mamopay.ui.base.BaseViewModel
 import javax.inject.Inject
 
-class SignInSetupViewModel @Inject constructor (val dataManager: DataManager) : BaseViewModel(){
+class SignInSetupViewModel @Inject constructor (val dataManager: DataManager, val prefs: UserPreferences) : BaseViewModel(){
 
     var state = STATE.SETUP
     private var enteredString = ""
@@ -16,7 +18,6 @@ class SignInSetupViewModel @Inject constructor (val dataManager: DataManager) : 
     private val _onCodeUpdate = MutableLiveData<String>()
     private val _onPinSet = LiveEvent<String>()
     private val _onLoginSuccess = MutableLiveData<Boolean>()
-    private val _onLoginFailed = MutableLiveData<Boolean>()
 
     val onCodeUpdate: LiveData<String>
         get() = _onCodeUpdate
@@ -26,10 +27,6 @@ class SignInSetupViewModel @Inject constructor (val dataManager: DataManager) : 
 
     val onLoginSuccess: LiveData<Boolean>
         get() = _onLoginSuccess
-
-
-    val onLoginFailed: LiveData<Boolean>
-        get() = _onLoginFailed
 
     fun onNumberPress(num: Int) {
         if (enteredString.length >= 4) return
@@ -52,16 +49,16 @@ class SignInSetupViewModel @Inject constructor (val dataManager: DataManager) : 
         }
 
         if (enteredString == pinToConfirm) {
+            // Pin confirmed, save to local storage
             _onLoginSuccess.value = true
+
+            // todo save as hash
+            prefs.setPinHash(enteredString)
+
         } else {
-            _onLoginFailed.value = true
+            _onLoginSuccess.value = false
         }
 
-//        if (enteredString == "5678") {
-//            _onLoginSuccess.value = true
-//        } else {
-//            _onLoginFailed.value = true
-//        }
     }
 
     fun setConfirmCode(confirmCode: String) {
