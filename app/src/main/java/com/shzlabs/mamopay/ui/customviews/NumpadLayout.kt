@@ -12,6 +12,7 @@ class NumpadLayout(context: Context?, attrs: AttributeSet?) : LinearLayout(conte
 
     private var onNumberPress: ((num: Int)->Unit)? = null
     private var onDeletePress: (()->Unit)? = null
+    private var onFingerprintPress: (()->Unit)? = null
 
     init {
         View.inflate(context, R.layout.numpad_layout, this)
@@ -27,6 +28,7 @@ class NumpadLayout(context: Context?, attrs: AttributeSet?) : LinearLayout(conte
         num9.setOnClickListener { buttonPress(it) }
         num0.setOnClickListener { buttonPress(it) }
         backspace.setOnClickListener { onDeletePress?.invoke() }
+        fingerprint.setOnClickListener { onFingerprintPress?.invoke() }
 
         backspace.visibility = View.GONE
     }
@@ -65,6 +67,11 @@ class NumpadLayout(context: Context?, attrs: AttributeSet?) : LinearLayout(conte
     fun setOnDeletePressListener(onDelete: ()->Unit) {
         onDeletePress = onDelete
     }
+
+    fun setOnFingerprintPressListener(onFingerprint: ()->Unit) {
+        onFingerprintPress = onFingerprint
+    }
+
 
 
 }

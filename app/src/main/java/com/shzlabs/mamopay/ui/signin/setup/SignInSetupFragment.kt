@@ -1,8 +1,12 @@
 package com.shzlabs.mamopay.ui.signin.setup
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.biometric.BiometricManager
+import androidx.biometric.BiometricPrompt
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.shzlabs.mamopay.NavMgr
@@ -10,7 +14,10 @@ import com.shzlabs.mamopay.R
 import com.shzlabs.mamopay.di.components.AppComponent
 import com.shzlabs.mamopay.ui.base.BaseActivity
 import com.shzlabs.mamopay.ui.base.BaseFragment
+import com.shzlabs.mamopay.util.biometric.BiometricHelper
+import com.shzlabs.mamopay.util.display.Toaster
 import kotlinx.android.synthetic.main.sign_in_setup_fragment.*
+import javax.inject.Inject
 
 class SignInSetupFragment : BaseFragment() {
 
@@ -27,6 +34,9 @@ class SignInSetupFragment : BaseFragment() {
     }
 
 
+    @Inject
+    lateinit var applicationContext: Context
+
     private lateinit var viewModel: SignInSetupViewModel
 
     override fun injectDependencies(diComponent: AppComponent) = diComponent.inject(this)
@@ -42,6 +52,10 @@ class SignInSetupFragment : BaseFragment() {
 
         numpad.setOnDeletePressListener {
             viewModel.onDeletePress()
+        }
+
+        numpad.setOnFingerprintPressListener {
+            promptBiometric()
         }
 
         stepper.onStepCompleteListener {
@@ -62,7 +76,12 @@ class SignInSetupFragment : BaseFragment() {
         })
 
         viewModel.onLoginSuccess.observe(viewLifecycleOwner, Observer {
-            if (it) stepper.setSuccess() else stepper.setError()
+            if (it) {
+                stepper.setSuccess()
+                promptBiometric()
+            } else {
+                stepper.setError()
+            }
         })
 
         viewModel.onError.observe(viewLifecycleOwner, Observer { showError(rootView, it) })
@@ -75,11 +94,56 @@ class SignInSetupFragment : BaseFragment() {
 
     }
 
-    fun setConfirmScreen(pinCode: String) {
+    private fun setConfirmScreen(pinCode: String) {
         viewModel.setConfirmCode(pinCode)
+        numpad.showFingerprintButton(false)
         msg_label.text = resources.getString(R.string.msg_confirm_pin)
         // TODO update title
         // setTitle()
+    }
+
+    private fun promptBiometric() {
+
+        val biometricManager = BiometricManager.from(applicationContext)
+
+        if (biometricManager.canAuthenticate() == BiometricManager.BIOMETRIC_SUCCESS) {
+
+            val prompt = BiometricHelper.instanceOfBiometricPrompt(this,
+                onCancel = {
+                    //showError(rootView, it)
+                    biometricAuthSuccess(false)
+                },
+                onSuccess = {
+                    biometricAuthSuccess(true)
+                })
+
+            prompt.authenticate(getPromptInfo())
+
+        }
+    }
+
+    private fun biometricAuthSuccess(success: Boolean) {
+        viewModel.biometricAuthSuccess(success)
+
+        if (!success && !viewModel.isPinAuthenticated()) {
+            // Move to login
+            Toaster.show(applicationContext, "Moving back to login")
+            return
+        }
+
+        Toaster.show(applicationContext, "Moving to dashboard!")
+        // Move to dashboard
+
+    }
+
+    private fun getPromptInfo(): BiometricPrompt.PromptInfo {
+        val promptInfo = BiometricPrompt.PromptInfo.Builder()
+            .setTitle("Fingerprint login")
+            .setSubtitle("Use your fingerprint for easier access to your account.")
+            .setDescription("Confirm fingerprint to continue")
+            .setNegativeButtonText("Use code")
+            .build()
+        return promptInfo
     }
 
 }

@@ -15,6 +15,11 @@ class AppModule(val application: Application) {
         return application.getString(R.string.app_name)
     }
 
+    @Provides
+    fun getContext(): Context {
+        return application
+    }
+
     @Singleton
     @Provides
     fun provideSharedPreferences() = application.getSharedPreferences("mamopay-prefs", Context.MODE_PRIVATE)

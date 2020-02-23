@@ -1,6 +1,5 @@
 package com.shzlabs.mamopay.ui.signin.setup
 
-import android.content.SharedPreferences
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.hadilq.liveevent.LiveEvent
@@ -59,6 +58,20 @@ class SignInSetupViewModel @Inject constructor (val dataManager: DataManager, va
             _onLoginSuccess.value = false
         }
 
+    }
+
+    fun isPinAuthenticated(): Boolean {
+        prefs.getPinHash()?.let {
+            return it.isNotEmpty()
+        }
+
+        return false
+    }
+
+    fun biometricAuthSuccess(success: Boolean) {
+        if (success) {
+            prefs.setBiometricAuth(true)
+        }
     }
 
     fun setConfirmCode(confirmCode: String) {

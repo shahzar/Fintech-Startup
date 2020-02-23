@@ -10,6 +10,7 @@ class UserPreferences @Inject constructor(private val prefs: SharedPreferences) 
     companion object {
         const val KEY_AUTH_STATE = "PREF_KEY_AUTH_STATE"
         const val KEY_PIN_HASH = "PREF_KEY_PIN_HASH"
+        const val KEY_BIOMETRIC_AUTH_SET = "PREF_KEY_BIOMETRIC_AUTH_SET"
     }
 
     fun setAuthState(authState: String) =
@@ -29,6 +30,15 @@ class UserPreferences @Inject constructor(private val prefs: SharedPreferences) 
 
     fun removePinHash() =
         prefs.edit().remove(KEY_PIN_HASH).apply()
+
+    fun setBiometricAuth(success: Boolean) =
+        prefs.edit().putBoolean(KEY_BIOMETRIC_AUTH_SET, success).apply()
+
+    fun getBiometricAuth(): Boolean =
+        prefs.getBoolean(KEY_BIOMETRIC_AUTH_SET, false)
+
+    fun removeBiometricAuth() =
+        prefs.edit().remove(KEY_BIOMETRIC_AUTH_SET).apply()
 
 
 }

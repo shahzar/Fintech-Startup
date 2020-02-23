@@ -52,6 +52,9 @@ dependencies {
     implementation 'com.google.dagger:dagger:2.25.2'
     kapt 'com.google.dagger:dagger-compiler:2.25.2'
 
+    // Biometric
+    implementation "androidx.biometric:biometric:1.0.1"
+
     implementation 'net.openid:appauth:0.7.1'
     implementation "com.github.hadilq.liveevent:liveevent:1.2.0"
 
