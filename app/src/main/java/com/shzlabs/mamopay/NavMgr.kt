@@ -1,12 +1,16 @@
 package com.shzlabs.mamopay
 
+import android.util.Log
 import com.shzlabs.mamopay.ui.base.BaseActivity
 import com.shzlabs.mamopay.ui.base.BaseFragment
 
 
 class NavMgr() {
 
+    private val TAG = "NavMgr"
+
     fun pushFragment(baseActivity: BaseActivity, baseFragment: BaseFragment) {
+        Log.d(TAG, "Pushed ${baseFragment.javaClass.simpleName}")
         baseActivity
             .supportFragmentManager
             .beginTransaction()

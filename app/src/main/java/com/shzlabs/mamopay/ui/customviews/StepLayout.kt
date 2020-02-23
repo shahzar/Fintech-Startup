@@ -14,8 +14,9 @@ class StepLayout(context: Context?, attrs: AttributeSet?) : LinearLayout(context
     private val colorStateSuccess = R.color.success
     private val colorStateError = R.color.failure
 
+    private var isInitialized = false
+
     private var viewList: List<View> = listOf()
-    private var stepCounter: Int = 0
 
 
     init {
@@ -34,28 +35,9 @@ class StepLayout(context: Context?, attrs: AttributeSet?) : LinearLayout(context
         stepCompleted = onComplete
     }
 
-    fun incrementStep() {
-        if (stepCounter < viewList.size) {
-            viewList[stepCounter++].setBackgroundColor(context.resources.getColor(colorActive))
-
-            if (stepCounter >= viewList.size) {
-                stepCompleted?.invoke()
-            }
-
-            return
-        }
-        stepCompleted?.invoke()
-    }
-
-    fun decrementStep() {
-        if (stepCounter < 1) {return}
-        viewList[--stepCounter].setBackgroundColor(context.resources.getColor(colorStateDefault))
-    }
-
     fun resetSteps() {
         for (v:View in viewList) {
             v.setBackgroundColor(context.resources.getColor(colorStateDefault))
-            stepCounter = 0
         }
     }
 
@@ -79,6 +61,12 @@ class StepLayout(context: Context?, attrs: AttributeSet?) : LinearLayout(context
                 v.setBackgroundColor(context.resources.getColor(colorStateDefault))
             }
         }
+
+        if(!isInitialized) {
+            isInitialized = true
+            return
+        }
+
         if (count >= viewList.size) {
             stepCompleted?.invoke()
         }
