@@ -11,6 +11,8 @@ class UserPreferences @Inject constructor(private val prefs: SharedPreferences) 
         const val KEY_AUTH_STATE = "PREF_KEY_AUTH_STATE"
         const val KEY_PIN_HASH = "PREF_KEY_PIN_HASH"
         const val KEY_BIOMETRIC_AUTH_SET = "PREF_KEY_BIOMETRIC_AUTH_SET"
+        const val KEY_FIRST_NAME = "PREF_KEY_FIRST_NAME"
+        const val KEY_LAST_NAME = "PREF_KEY_LAST_NAME"
     }
 
     fun setAuthState(authState: String) =
@@ -22,8 +24,26 @@ class UserPreferences @Inject constructor(private val prefs: SharedPreferences) 
     fun removeAuthState() =
         prefs.edit().remove(KEY_AUTH_STATE).apply()
 
-    fun setPinHash(authState: String) =
-        prefs.edit().putString(KEY_PIN_HASH, authState).apply()
+    fun setFirstName(firstName: String) =
+        prefs.edit().putString(KEY_FIRST_NAME, firstName).apply()
+
+    fun getFirstName(): String? =
+        prefs.getString(KEY_FIRST_NAME, null)
+
+    fun removeFirstName() =
+        prefs.edit().remove(KEY_FIRST_NAME).apply()
+
+    fun setLastName(lastName: String) =
+        prefs.edit().putString(KEY_LAST_NAME, lastName).apply()
+
+    fun getLastName(): String? =
+        prefs.getString(KEY_LAST_NAME, null)
+
+    fun removeLastName() =
+        prefs.edit().remove(KEY_LAST_NAME).apply()
+
+    fun setPinHash(pin: String) =
+        prefs.edit().putString(KEY_PIN_HASH, pin).apply()
 
     fun getPinHash(): String? =
         prefs.getString(KEY_PIN_HASH, null)

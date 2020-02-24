@@ -29,6 +29,13 @@
         <item name="android:lineSpacingExtra">@dimen/margin_xs</item>
     </style>
 
+    <style name="AppTheme.Body1.s" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">@dimen/font_body_s</item>
+        <item name="android:textColor">@color/black60</item>
+        <item name="android:lineSpacingExtra">@dimen/margin_xs</item>
+    </style>
+
+
     <style name="AppTheme.Button" parent="Widget.MaterialComponents.Button.UnelevatedButton">
         <item name="android:textColor">@color/white100</item>
         <item name="shapeAppearanceOverlay">@style/AppTheme.Button.ShapeAppearance</item>

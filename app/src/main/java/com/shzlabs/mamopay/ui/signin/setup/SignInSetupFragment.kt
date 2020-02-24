@@ -15,6 +15,7 @@ import com.shzlabs.mamopay.di.components.AppComponent
 import com.shzlabs.mamopay.ui.base.BaseActivity
 import com.shzlabs.mamopay.ui.base.BaseFragment
 import com.shzlabs.mamopay.ui.home.HomeFragment
+import com.shzlabs.mamopay.ui.signin.SignInFragment
 import com.shzlabs.mamopay.util.biometric.BiometricHelper
 import com.shzlabs.mamopay.util.display.Toaster
 import kotlinx.android.synthetic.main.sign_in_setup_fragment.*
@@ -47,7 +48,6 @@ class SignInSetupFragment : BaseFragment() {
     override fun initView(view: View) {
 
         numpad.setOnNumberPressListener {
-            Log.d("SignInSetup", "Number pressed $it")
             viewModel.onNumberPress(it)
         }
 
@@ -61,6 +61,12 @@ class SignInSetupFragment : BaseFragment() {
 
         stepper.onStepCompleteListener {
             viewModel.onNumberPressComplete()
+        }
+
+        arguments?.getString(KEY_CONFIRM_CODE)?.let {
+            if (it.isNotEmpty()) {
+                setConfirmScreen(it)
+            }
         }
     }
 
@@ -87,11 +93,6 @@ class SignInSetupFragment : BaseFragment() {
 
         viewModel.onError.observe(viewLifecycleOwner, Observer { showError(rootView, it) })
 
-        arguments?.getString(KEY_CONFIRM_CODE)?.let {
-            if (it.isNotEmpty()) {
-                setConfirmScreen(it)
-            }
-        }
 
     }
 
@@ -132,15 +133,15 @@ class SignInSetupFragment : BaseFragment() {
         }
 
         // Move to dashboard
-        NavMgr().pushFragment(activity as BaseActivity, HomeFragment.newInstance())
+        NavMgr().pushFragment(activity as BaseActivity, SignInFragment.newInstance())
     }
 
     private fun getPromptInfo(): BiometricPrompt.PromptInfo {
         val promptInfo = BiometricPrompt.PromptInfo.Builder()
-            .setTitle("Fingerprint login")
-            .setSubtitle("Use your fingerprint for easier access to your account.")
-            .setDescription("Confirm fingerprint to continue")
-            .setNegativeButtonText("Use code")
+            .setTitle(getString(R.string.msg_fingerprint_prompt_title))
+            .setSubtitle(getString(R.string.msg_fingerprint_prompt_subtitle))
+            .setDescription(getString(R.string.msg_fingerprint_prompt_description))
+            .setNegativeButtonText(getString(R.string.msg_fingerprint_prompt_neg_button))
             .build()
         return promptInfo
     }

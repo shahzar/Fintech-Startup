@@ -19,4 +19,12 @@
     <string name="label_num9">9</string>
     <string name="label_num0">0</string>
 
+    <!--  Fingerprint prompt  -->
+    <string name="msg_fingerprint_prompt_title">Fingerprint login</string>
+    <string name="msg_fingerprint_prompt_subtitle">Use your fingerprint for easier access to your account.</string>
+    <string name="msg_fingerprint_prompt_description">Confirm fingerprint to continue</string>
+    <string name="msg_fingerprint_prompt_neg_button">Use code</string>
+    <string name="label_forgot_code">Forgot code?</string>
+    <string name="msg_greetings">Hello, %1$s!</string>
+
 </resources>

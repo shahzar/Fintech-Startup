@@ -26,6 +26,7 @@ abstract class BaseFragment: Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         rootView = inflater.inflate(provideLayoutId(), container, false)
+        setupObservers()
         return rootView
     }
 
@@ -36,7 +37,7 @@ abstract class BaseFragment: Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        setupObservers()
+        //setupObservers()
     }
 
     protected open fun setupObservers() {}
