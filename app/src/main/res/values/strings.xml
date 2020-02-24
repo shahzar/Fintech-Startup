@@ -26,5 +26,9 @@
     <string name="msg_fingerprint_prompt_neg_button">Use code</string>
     <string name="label_forgot_code">Forgot code?</string>
     <string name="msg_greetings">Hello, %1$s!</string>
+    <string name="err_no_empty">Cannot be empty</string>
+    <string name="err_name_constraint_mismatch">Use letters only without spaces</string>
+    <string name="err_login_failed">Login failed</string>
+    <string name="err_fingerprint_setup_system">Biometric not setup on system</string>
 
 </resources>

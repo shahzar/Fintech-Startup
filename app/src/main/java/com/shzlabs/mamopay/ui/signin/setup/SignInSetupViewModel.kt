@@ -49,10 +49,10 @@ class SignInSetupViewModel @Inject constructor (val dataManager: DataManager, va
 
         if (enteredString == pinToConfirm) {
             // Pin confirmed, save to local storage
-            _onLoginSuccess.value = true
-
             // todo save as hash
             prefs.setPinHash(enteredString)
+
+            _onLoginSuccess.value = true
 
         } else {
             _onLoginSuccess.value = false

@@ -21,8 +21,6 @@ import javax.inject.Inject
 
 class OnBoardingDetailsFragment : BaseFragment() {
 
-    @Inject
-    lateinit var appContext: Context
 
     companion object {
         fun newInstance() = OnBoardingDetailsFragment()
@@ -62,8 +60,6 @@ class OnBoardingDetailsFragment : BaseFragment() {
 
         viewModel.onError.observe(viewLifecycleOwner, Observer { showError(rootView, it) })
 
-        viewModel.onCreate()
-
     }
 
     private fun confirmChanges() {
@@ -83,20 +79,22 @@ class OnBoardingDetailsFragment : BaseFragment() {
         var error: String? = null
 
         if (name.isEmpty()) {
-            error = "Cannot be empty"
+            error = getString(R.string.err_no_empty)
         }
 
         if (name.contains(" ") || name.contains(Regex("[0123456789]"))) {
-            error = "Use letters only without spaces"
+            error = getString(R.string.err_name_constraint_mismatch)
         }
 
         error?.let {
             textInputLayout.error = error
+            confirm_button.isEnabled = false
             return false
         }
 
         textInputLayout.error = null
         textInputLayout.isErrorEnabled = false
+        confirm_button.isEnabled = true
         return true
     }
 

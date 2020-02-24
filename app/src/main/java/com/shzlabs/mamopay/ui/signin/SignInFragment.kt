@@ -13,6 +13,7 @@ import com.shzlabs.mamopay.ui.base.BaseActivity
 import com.shzlabs.mamopay.ui.base.BaseFragment
 import com.shzlabs.mamopay.ui.home.HomeFragment
 import com.shzlabs.mamopay.util.biometric.BiometricHelper
+import com.shzlabs.mamopay.util.display.Toaster
 import kotlinx.android.synthetic.main.sign_in_fragment.*
 import javax.inject.Inject
 
@@ -95,14 +96,18 @@ class SignInFragment : BaseFragment() {
 
             prompt.authenticate(getPromptInfo())
 
+            return
         }
+
+        Toaster.show(applicationContext, getString(R.string.err_fingerprint_setup_system))
+        //biometricAuthSuccess(false)
     }
 
     private fun biometricAuthSuccess(success: Boolean) {
         viewModel.biometricAuthSuccess(success)
 
-        if (!success && !viewModel.isPinAuthenticated()) {
-            promptBiometric()
+        if (!success) {
+            //promptBiometric()
             return
         }
 

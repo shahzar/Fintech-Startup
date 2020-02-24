@@ -121,7 +121,11 @@ class SignInSetupFragment : BaseFragment() {
 
             prompt.authenticate(getPromptInfo())
 
+            return
         }
+
+        Toaster.show(applicationContext, getString(R.string.err_fingerprint_setup_system))
+        biometricAuthSuccess(false)
     }
 
     private fun biometricAuthSuccess(success: Boolean) {

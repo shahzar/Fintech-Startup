@@ -19,16 +19,13 @@ class OnBoardingDetailsViewModel @Inject constructor (val prefs: UserPreferences
 
 
     init {
-        if (_firstname.value == null)
-            _firstname.value = prefs.getFirstName()
+        prefs.getFirstName()?.let {
+            _firstname.value = it
+        }
 
-        if (_lastname.value == null)
-            _lastname.value = prefs.getLastName()
-    }
-
-    fun onCreate() {
-
-
+        prefs.getLastName()?.let {
+            _lastname.value = it
+        }
     }
 
     fun setName(first: String, last: String) {

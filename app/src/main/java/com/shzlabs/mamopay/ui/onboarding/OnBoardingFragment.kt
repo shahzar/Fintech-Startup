@@ -15,7 +15,6 @@ import com.shzlabs.mamopay.ui.base.BaseActivity
 import com.shzlabs.mamopay.ui.base.BaseFragment
 import com.shzlabs.mamopay.ui.home.OnBoardingViewModel
 import com.shzlabs.mamopay.ui.onboarding.details.OnBoardingDetailsFragment
-import kotlinx.android.synthetic.main.home_fragment.welcome_text
 import kotlinx.android.synthetic.main.on_boarding_fragment.*
 import javax.inject.Inject
 
@@ -64,6 +63,8 @@ class OnBoardingFragment : BaseFragment() {
                 userPreferences.setAuthState(authState)
                 enablePostAuthorizationFlows(true)
             }
+        } else {
+            showError(rootView, getString(R.string.err_login_failed))
         }
     }
 
@@ -75,6 +76,8 @@ class OnBoardingFragment : BaseFragment() {
     fun enablePostAuthorizationFlows(firstLogin: Boolean = false) {
         if (GoogleAuthHelper.isLoggedIn(userPreferences.getAuthState())) {
             NavMgr().pushFragment(activity as BaseActivity, OnBoardingDetailsFragment.newInstance())
+        } else if (firstLogin) {
+            showError(rootView, getString(R.string.err_login_failed))
         }
 
     }

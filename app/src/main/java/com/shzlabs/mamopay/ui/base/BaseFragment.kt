@@ -1,5 +1,6 @@
 package com.shzlabs.mamopay.ui.base
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -15,6 +16,9 @@ import javax.inject.Inject
 abstract class BaseFragment: Fragment() {
 
     lateinit var rootView:View
+
+    @Inject
+    lateinit var appContext: Context
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
