@@ -41,6 +41,9 @@
         app:layout_constraintStart_toStartOf="@id/margin_start"
         app:layout_constraintEnd_toEndOf="@id/margin_end"
         app:layout_constraintTop_toBottomOf="@id/first_name_con"
+        app:layout_constraintBottom_toTopOf="@id/confirm_button"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintVertical_chainStyle="spread_inside"
         android:layout_marginTop="@dimen/margin_l"
         android:hint="@string/label_last_name"
         android:theme="@style/AppTheme.TextInputLayout">
@@ -58,6 +61,7 @@
         app:layout_constraintStart_toStartOf="@id/margin_start"
         app:layout_constraintEnd_toEndOf="@id/margin_end"
         app:layout_constraintBottom_toTopOf="@id/margin_bottom"
+        app:layout_constraintTop_toBottomOf="@id/last_name_con"
         android:text="@string/label_confirm"
         android:theme="@style/AppTheme.Button"
         android:layout_marginBottom="@dimen/margin_m" />
