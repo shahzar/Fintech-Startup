@@ -15,6 +15,7 @@
     <dimen name="font_body_m">16sp</dimen>
     <dimen name="font_body_l">18sp</dimen>
 
+    <dimen name="font_headline_h1">40sp</dimen>
     <dimen name="font_headline_h3">28sp</dimen>
 
     <dimen name="page_margin_m">32dp</dimen>

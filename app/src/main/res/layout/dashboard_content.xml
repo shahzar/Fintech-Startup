@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        android:id="@+id/label_balance"
+        style="@style/AppTheme.Body1.l"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mamo Pay balance"
+        android:textColor="@color/white100"
+        app:layout_constraintTop_toTopOf="@id/margin_top"
+        app:layout_constraintStart_toStartOf="@id/margin_start"/>
+
+
+    <TextView
+        android:id="@+id/currency"
+        style="@style/AppTheme.Headline.H3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AED"
+        android:textColor="@color/white100"
+        android:layout_marginTop="@dimen/margin_l"
+        app:layout_constraintTop_toBottomOf="@id/label_balance"
+        app:layout_constraintStart_toStartOf="@id/margin_start" />
+
+    <TextView
+        android:id="@+id/amount"
+        style="@style/AppTheme.Headline.H3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2,179.00"
+        android:textColor="@color/white100"
+        android:layout_marginStart="@dimen/margin_xs"
+        app:layout_constraintTop_toTopOf="@id/currency"
+        app:layout_constraintBottom_toBottomOf="@id/currency"
+        app:layout_constraintStart_toEndOf="@id/currency" />
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/margin_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="@dimen/page_margin_m" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/margin_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/page_margin_m" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/margin_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/page_margin_m" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/margin_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="420dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,6 +20,7 @@
     <style name="AppTheme.Headline.H3" parent="TextAppearance.MaterialComponents.Headline3">
         <item name="android:textSize">@dimen/font_headline_h3</item>
         <item name="android:textColor">@color/black100</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:lineSpacingExtra">@dimen/margin_s</item>
     </style>
 
@@ -28,6 +29,13 @@
         <item name="android:textColor">@color/black60</item>
         <item name="android:lineSpacingExtra">@dimen/margin_xs</item>
     </style>
+
+    <style name="AppTheme.Body1.l" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">@dimen/font_body_l</item>
+        <item name="android:textColor">@color/black60</item>
+        <item name="android:lineSpacingExtra">@dimen/margin_xs</item>
+    </style>
+
 
     <style name="AppTheme.Body1.s" parent="TextAppearance.MaterialComponents.Body1">
         <item name="android:textSize">@dimen/font_body_s</item>
