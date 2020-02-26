@@ -16,6 +16,21 @@
         app:layout_constraintStart_toStartOf="@id/margin_start"/>
 
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/profile"
+        android:layout_width="@dimen/button_profile_icon"
+        android:layout_height="@dimen/button_profile_icon"
+        style="@style/AppTheme.ButtonRound.Icon"
+        app:layout_constraintTop_toTopOf="@id/label_balance"
+        app:layout_constraintBottom_toBottomOf="@id/label_balance"
+        app:layout_constraintEnd_toStartOf="@id/margin_end"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        android:backgroundTint="#8ACFC3"
+        android:text="A"
+        android:textSize="18dp"
+        android:textColor="@color/white100"/>
+
+
     <TextView
         android:id="@+id/currency"
         style="@style/AppTheme.Headline.H3"
@@ -39,6 +54,78 @@
         app:layout_constraintBottom_toBottomOf="@id/currency"
         app:layout_constraintStart_toEndOf="@id/currency" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/add_money"
+        android:layout_width="@dimen/button_dashboard_actions"
+        android:layout_height="@dimen/button_dashboard_actions"
+        style="@style/AppTheme.ButtonRound.Icon"
+        android:layout_marginTop="@dimen/margin_l"
+        app:layout_constraintTop_toBottomOf="@id/currency"
+        app:layout_constraintStart_toStartOf="@id/margin_start"
+        app:layout_constraintEnd_toStartOf="@id/send_money"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        android:layout_marginStart="@dimen/margin_l"
+        app:icon="@drawable/ic_add_black_24dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/send_money"
+        android:layout_width="@dimen/button_dashboard_actions"
+        android:layout_height="@dimen/button_dashboard_actions"
+        style="@style/AppTheme.ButtonRound.Icon"
+        app:layout_constraintTop_toTopOf="@id/add_money"
+        app:layout_constraintBottom_toBottomOf="@id/add_money"
+        app:layout_constraintStart_toEndOf="@id/add_money"
+        app:layout_constraintEnd_toStartOf="@id/more"
+        app:icon="@drawable/ic_send_24px" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/more"
+        android:layout_width="@dimen/button_dashboard_actions"
+        android:layout_height="@dimen/button_dashboard_actions"
+        style="@style/AppTheme.ButtonRound.Icon"
+        app:layout_constraintTop_toTopOf="@id/send_money"
+        app:layout_constraintBottom_toBottomOf="@id/send_money"
+        app:layout_constraintStart_toEndOf="@id/send_money"
+        app:layout_constraintEnd_toEndOf="@id/margin_end"
+        android:layout_marginEnd="@dimen/margin_l"
+        app:icon="@drawable/ic_more_horiz_24px" />
+
+
+    <TextView
+        android:id="@+id/label_add_money"
+        style="@style/AppTheme.Body1.m"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add money"
+        android:textColor="@color/white100"
+        android:layout_marginTop="@dimen/margin_s"
+        app:layout_constraintTop_toBottomOf="@id/add_money"
+        app:layout_constraintStart_toStartOf="@id/add_money"
+        app:layout_constraintEnd_toEndOf="@id/add_money"/>
+
+    <TextView
+        android:id="@+id/label_send_money"
+        style="@style/AppTheme.Body1.m"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add money"
+        android:textColor="@color/white100"
+        android:layout_marginTop="@dimen/margin_s"
+        app:layout_constraintTop_toBottomOf="@id/send_money"
+        app:layout_constraintStart_toStartOf="@id/send_money"
+        app:layout_constraintEnd_toEndOf="@id/send_money"/>
+
+    <TextView
+        android:id="@+id/label_more"
+        style="@style/AppTheme.Body1.m"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="More"
+        android:textColor="@color/white100"
+        android:layout_marginTop="@dimen/margin_s"
+        app:layout_constraintTop_toBottomOf="@id/more"
+        app:layout_constraintStart_toStartOf="@id/more"
+        app:layout_constraintEnd_toEndOf="@id/more"/>
 
 
     <androidx.constraintlayout.widget.Guideline

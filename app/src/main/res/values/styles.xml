@@ -58,6 +58,18 @@
         <item name="cornerSizeBottomLeft">25dp</item>
     </style>
 
+    <style name="AppTheme.ButtonRound.Icon" parent="Widget.MaterialComponents.Button.OutlinedButton.Icon">
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:padding">0dp</item>
+        <item name="iconPadding">0dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="backgroundTint">@color/white100</item>
+        <item name="iconTint">@color/black100</item>
+        <item name="shapeAppearanceOverlay">@style/AppTheme.ButtonNumpad.ShapeAppearance</item>
+    </style>
+
+
     <style name="AppTheme.ButtonNumpad" parent="Widget.MaterialComponents.Button.UnelevatedButton">
         <item name="android:layout_margin">@dimen/margin_m</item>
         <item name="backgroundTint">@color/white100</item>
