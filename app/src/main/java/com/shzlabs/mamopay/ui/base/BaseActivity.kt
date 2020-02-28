@@ -3,7 +3,7 @@ package com.shzlabs.mamopay.ui.base
 import androidx.appcompat.app.AppCompatActivity
 import com.shzlabs.mamopay.di.components.AppComponent
 import com.shzlabs.mamopay.BaseApplication
-import com.shzlabs.mamopay.util.navigation.NavMgr
+import com.shzlabs.mamopay.util.navigation.NavHelper
 import com.shzlabs.mamopay.di.ViewModelFactory
 import javax.inject.Inject
 
@@ -17,7 +17,7 @@ abstract class BaseActivity: AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if(!NavMgr().pop(this)) {
+        if(!NavHelper.pop(this)) {
             finish()
         }
     }

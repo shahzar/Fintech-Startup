@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProviders
 import com.shzlabs.mamopay.ui.base.BaseActivity
 import com.shzlabs.mamopay.ui.main.dashboard.DashboardFragment
-import com.shzlabs.mamopay.util.navigation.NavMgr
+import com.shzlabs.mamopay.util.navigation.NavHelper
 
 class MainActivity : BaseActivity() {
 
@@ -25,6 +25,6 @@ class MainActivity : BaseActivity() {
             finish()
         }
 
-        NavMgr().pushFragment(this, DashboardFragment.newInstance())
+        NavHelper.pushFragment(this, DashboardFragment.newInstance())
     }
 }

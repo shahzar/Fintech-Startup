@@ -3,7 +3,7 @@ package com.shzlabs.mamopay
 import android.os.Bundle
 import com.shzlabs.mamopay.ui.base.BaseActivity
 import com.shzlabs.mamopay.ui.onboarding.OnBoardingFragment
-import com.shzlabs.mamopay.util.navigation.NavMgr
+import com.shzlabs.mamopay.util.navigation.NavHelper
 import javax.inject.Inject
 
 class OnBoardingActivity : BaseActivity() {
@@ -15,7 +15,7 @@ class OnBoardingActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_onboarding)
 
-        NavMgr().pushFragment(this, OnBoardingFragment.newInstance())
+        NavHelper.pushFragment(this, OnBoardingFragment.newInstance())
 
         getDiComponent().inject(this)
 

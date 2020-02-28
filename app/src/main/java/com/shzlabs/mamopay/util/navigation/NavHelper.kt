@@ -6,9 +6,9 @@ import com.shzlabs.mamopay.ui.base.BaseActivity
 import com.shzlabs.mamopay.ui.base.BaseFragment
 
 
-class NavMgr() {
+object NavHelper {
 
-    private val TAG = "NavMgr"
+    private val TAG = "NavHelper"
 
     fun pushFragment(baseActivity: BaseActivity, baseFragment: BaseFragment) {
         Log.d(TAG, "Pushed ${baseFragment.javaClass.simpleName}")

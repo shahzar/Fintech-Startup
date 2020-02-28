@@ -4,7 +4,7 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.textfield.TextInputLayout
-import com.shzlabs.mamopay.util.navigation.NavMgr
+import com.shzlabs.mamopay.util.navigation.NavHelper
 import com.shzlabs.mamopay.R
 import com.shzlabs.mamopay.di.components.AppComponent
 import com.shzlabs.mamopay.ui.base.BaseActivity
@@ -66,7 +66,7 @@ class OnBoardingDetailsFragment : BaseFragment() {
 
         viewModel.setName(firstName, lastName)
 
-        NavMgr()
+        NavHelper
             .pushFragment(activity as BaseActivity, SignInSetupFragment.newInstance())
     }
 
