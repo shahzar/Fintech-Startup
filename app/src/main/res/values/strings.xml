@@ -30,5 +30,8 @@
     <string name="err_name_constraint_mismatch">Use letters only without spaces</string>
     <string name="err_login_failed">Login failed</string>
     <string name="err_fingerprint_setup_system">Biometric not setup on system</string>
+    <string name="label_add_money">Add money</string>
+    <string name="label_add_money">Add money</string>
+    <string name="label_more">More</string>
 
 </resources>

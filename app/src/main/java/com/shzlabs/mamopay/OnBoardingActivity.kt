@@ -3,6 +3,7 @@ package com.shzlabs.mamopay
 import android.os.Bundle
 import com.shzlabs.mamopay.ui.base.BaseActivity
 import com.shzlabs.mamopay.ui.onboarding.OnBoardingFragment
+import com.shzlabs.mamopay.util.navigation.NavMgr
 import javax.inject.Inject
 
 class OnBoardingActivity : BaseActivity() {

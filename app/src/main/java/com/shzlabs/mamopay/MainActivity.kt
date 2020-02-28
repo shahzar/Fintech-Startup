@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProviders
 import com.shzlabs.mamopay.ui.base.BaseActivity
 import com.shzlabs.mamopay.ui.main.dashboard.DashboardFragment
+import com.shzlabs.mamopay.util.navigation.NavMgr
 
 class MainActivity : BaseActivity() {
 

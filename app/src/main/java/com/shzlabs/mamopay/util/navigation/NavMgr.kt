@@ -1,6 +1,7 @@
-package com.shzlabs.mamopay
+package com.shzlabs.mamopay.util.navigation
 
 import android.util.Log
+import com.shzlabs.mamopay.R
 import com.shzlabs.mamopay.ui.base.BaseActivity
 import com.shzlabs.mamopay.ui.base.BaseFragment
 

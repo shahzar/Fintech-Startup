@@ -1,23 +1,17 @@
 package com.shzlabs.mamopay.ui.onboarding.details
 
-import android.content.Context
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.textfield.TextInputLayout
-import com.shzlabs.mamopay.NavMgr
+import com.shzlabs.mamopay.util.navigation.NavMgr
 import com.shzlabs.mamopay.R
 import com.shzlabs.mamopay.di.components.AppComponent
 import com.shzlabs.mamopay.ui.base.BaseActivity
 import com.shzlabs.mamopay.ui.base.BaseFragment
 import com.shzlabs.mamopay.ui.signin.setup.SignInSetupFragment
-import com.shzlabs.mamopay.util.display.Toaster
 import com.shzlabs.mamopay.util.extensions.afterTextChanged
-import kotlinx.android.synthetic.main.home_fragment.*
 import kotlinx.android.synthetic.main.on_boarding_details_fragment.*
-import javax.inject.Inject
 
 class OnBoardingDetailsFragment : BaseFragment() {
 
@@ -72,7 +66,8 @@ class OnBoardingDetailsFragment : BaseFragment() {
 
         viewModel.setName(firstName, lastName)
 
-        NavMgr().pushFragment(activity as BaseActivity, SignInSetupFragment.newInstance())
+        NavMgr()
+            .pushFragment(activity as BaseActivity, SignInSetupFragment.newInstance())
     }
 
     private fun validateName(name: String, textInputLayout: TextInputLayout): Boolean{

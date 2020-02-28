@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.shzlabs.mamopay.NavMgr
+import com.shzlabs.mamopay.util.navigation.NavMgr
 import com.shzlabs.mamopay.R
 import com.shzlabs.mamopay.data.local.prefs.UserPreferences
 import com.shzlabs.mamopay.di.components.AppComponent
@@ -75,7 +75,8 @@ class OnBoardingFragment : BaseFragment() {
 
     fun enablePostAuthorizationFlows(firstLogin: Boolean = false) {
         if (GoogleAuthHelper.isLoggedIn(userPreferences.getAuthState())) {
-            NavMgr().pushFragment(activity as BaseActivity, OnBoardingDetailsFragment.newInstance())
+            NavMgr()
+                .pushFragment(activity as BaseActivity, OnBoardingDetailsFragment.newInstance())
         } else if (firstLogin) {
             showError(rootView, getString(R.string.err_login_failed))
         }

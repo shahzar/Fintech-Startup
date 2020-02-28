@@ -2,19 +2,16 @@ package com.shzlabs.mamopay.ui.signin.setup
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.shzlabs.mamopay.NavMgr
+import com.shzlabs.mamopay.util.navigation.NavMgr
 import com.shzlabs.mamopay.R
 import com.shzlabs.mamopay.di.components.AppComponent
 import com.shzlabs.mamopay.ui.base.BaseActivity
 import com.shzlabs.mamopay.ui.base.BaseFragment
-import com.shzlabs.mamopay.ui.home.HomeFragment
 import com.shzlabs.mamopay.ui.signin.SignInFragment
 import com.shzlabs.mamopay.util.biometric.BiometricHelper
 import com.shzlabs.mamopay.util.display.Toaster
@@ -79,7 +76,8 @@ class SignInSetupFragment : BaseFragment() {
         })
 
         viewModel.onPinSet.observe(viewLifecycleOwner, Observer {
-            NavMgr().pushFragment(activity as BaseActivity, SignInSetupFragment.newInstance(it))
+            NavMgr()
+                .pushFragment(activity as BaseActivity, SignInSetupFragment.newInstance(it))
         })
 
         viewModel.onLoginSuccess.observe(viewLifecycleOwner, Observer {
@@ -137,7 +135,8 @@ class SignInSetupFragment : BaseFragment() {
         }
 
         // Move to dashboard
-        NavMgr().pushFragment(activity as BaseActivity, SignInFragment.newInstance())
+        NavMgr()
+            .pushFragment(activity as BaseActivity, SignInFragment.newInstance())
     }
 
     private fun getPromptInfo(): BiometricPrompt.PromptInfo {
