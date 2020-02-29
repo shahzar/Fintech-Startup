@@ -21,7 +21,7 @@
     <dimen name="page_margin_m">32dp</dimen>
     <dimen name="button_height">65dp</dimen>
 
-    <dimen name="button_profile_icon">44dp</dimen>
+    <dimen name="button_profile_icon">48dp</dimen>
     <dimen name="button_dashboard_actions">74dp</dimen>
     <dimen name="numpad_dial_button_height">64dp</dimen>
     <dimen name="numpad_fingerprint_height">40dp</dimen>

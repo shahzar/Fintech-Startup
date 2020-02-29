@@ -1,5 +1,7 @@
 package com.shzlabs.mamopay.data
 
+import com.shzlabs.mamopay.data.local.database.DatabaseService
+import com.shzlabs.mamopay.data.model.TransactionModel
 import com.shzlabs.mamopay.data.repository.ApiService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -7,7 +9,7 @@ import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
 
-class DataManager @Inject constructor(val remoteDataSrc: ApiService) {
+class DataManager @Inject constructor(private val remoteDataSrc: ApiService, private val localDataSrc: DatabaseService) {
 
     private suspend fun <T> safeApiCall(apiCall: suspend () -> T) = withContext(Dispatchers.IO) {
         try {
@@ -24,4 +26,13 @@ class DataManager @Inject constructor(val remoteDataSrc: ApiService) {
     suspend fun getSampleData() = safeApiCall {
         remoteDataSrc.getSampleData()
     }
+
+    suspend fun getTransactionData() = safeApiCall {
+        localDataSrc.transactionDao().getAll()
+    }
+
+    suspend fun addTransactionData(transactionModel: TransactionModel) = safeApiCall {
+        localDataSrc.transactionDao().insert(transactionModel)
+    }
+
 }

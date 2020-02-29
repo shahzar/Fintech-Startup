@@ -4,20 +4,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/page_margin_m"
+    android:paddingEnd="@dimen/page_margin_m"
+    android:paddingTop="30dp"
     android:background="@drawable/bg_bottomsheet_dashboard">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Hello Bottomsheet!"
-        />
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+        android:id="@+id/transaction_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         />
 
 </LinearLayout>
