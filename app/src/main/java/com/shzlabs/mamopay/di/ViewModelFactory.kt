@@ -3,6 +3,7 @@ package com.shzlabs.mamopay.di
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.shzlabs.mamopay.MainViewModel
+import com.shzlabs.mamopay.SplashViewModel
 import com.shzlabs.mamopay.ui.home.HomeViewModel
 import com.shzlabs.mamopay.ui.onboarding.details.OnBoardingDetailsViewModel
 import com.shzlabs.mamopay.ui.home.OnBoardingViewModel
@@ -48,6 +49,11 @@ internal abstract class ViewModelBuilder {
     @IntoMap
     @ViewModelKey(MainViewModel::class)
     internal abstract fun mainViewModel(onBoardingViewModel: MainViewModel) : ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SplashViewModel::class)
+    internal abstract fun splashViewModel(splashViewModel: SplashViewModel) : ViewModel
 
     @Binds
     @IntoMap

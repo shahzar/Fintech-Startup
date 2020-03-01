@@ -3,6 +3,7 @@ package com.shzlabs.mamopay.di.components
 import android.app.Application
 import com.shzlabs.mamopay.MainActivity
 import com.shzlabs.mamopay.OnBoardingActivity
+import com.shzlabs.mamopay.SplashActivity
 import com.shzlabs.mamopay.di.ViewModelBuilder
 import com.shzlabs.mamopay.di.modules.AppModule
 import com.shzlabs.mamopay.di.modules.NetworkModule
@@ -20,6 +21,7 @@ import javax.inject.Singleton
 interface AppComponent {
 
     fun application(application: Application)
+    fun inject(splashActivity: SplashActivity)
     fun inject(mainActivity: MainActivity)
     fun inject(onBoardingActivity: OnBoardingActivity)
     fun inject(homeFragment: HomeFragment)
