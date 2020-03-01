@@ -8,14 +8,14 @@ import com.shzlabs.mamopay.R
 import com.shzlabs.mamopay.di.components.AppComponent
 import com.shzlabs.mamopay.ui.base.BaseFragment
 import com.shzlabs.mamopay.util.display.Toaster
+import com.shzlabs.mamopay.util.notification.NotificationHelper
 import kotlinx.android.synthetic.main.dashboard_bottomsheet_layout.*
 import kotlinx.android.synthetic.main.dashboard_content.*
-import com.shzlabs.mamopay.util.notification.NotificationHelper
 
 
 class DashboardFragment : BaseFragment() {
 
-    val transactionsAdapter = TransactionsAdapter()
+    private val transactionsAdapter = TransactionsAdapter()
 
     companion object {
         fun newInstance() = DashboardFragment()
@@ -40,8 +40,6 @@ class DashboardFragment : BaseFragment() {
 
     override fun setupObservers() {
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(DashboardViewModel::class.java)
-
-        //viewModel.sampleData.observe(viewLifecycleOwner, Observer { welcome_text.text = it.title })
 
         viewModel.onMoneyAdded.observe(viewLifecycleOwner, Observer {
             moneyAdded(it)
@@ -69,13 +67,13 @@ class DashboardFragment : BaseFragment() {
 
         Toaster.show(rootView.context, "Money Added")
 
+        // TODO: interviewer review
         // Show notification
         val channelId = getString(R.string.val_channel_gen_id)
         val channelName = getString(R.string.val_channel_gen_name)
 
         NotificationHelper.createChannel(rootView.context, channelId, channelName)
 
-        // TODO: interviewer review
         NotificationHelper.showNotification(
             rootView.context,
             channelId,

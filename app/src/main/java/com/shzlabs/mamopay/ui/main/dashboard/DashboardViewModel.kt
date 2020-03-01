@@ -60,6 +60,9 @@ class DashboardViewModel @Inject constructor (private val dataManager: DataManag
     }
 
     fun addMoney(amount: Int) {
+
+        val balance = _balance.value
+
         ioLaunch(
             block = {
                 // TODO: interviewer review
@@ -67,8 +70,6 @@ class DashboardViewModel @Inject constructor (private val dataManager: DataManag
             },
             onSuccess = {
                 _onMoneyAdded.value = amount
-
-                val balance = _balance.value
 
                 // TODO: interviewer review
                 _balance.value = if (balance == null) { amount.toLong() } else { balance + amount }
