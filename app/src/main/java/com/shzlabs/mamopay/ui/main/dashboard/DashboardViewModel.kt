@@ -3,6 +3,7 @@ package com.shzlabs.mamopay.ui.main.dashboard
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.hadilq.liveevent.LiveEvent
 import com.shzlabs.mamopay.data.DataManager
 import com.shzlabs.mamopay.data.local.database.DatabaseService
 import com.shzlabs.mamopay.data.model.SampleDataModel
@@ -12,17 +13,35 @@ import com.shzlabs.mamopay.di.components.AppComponent
 import com.shzlabs.mamopay.ui.base.BaseViewModel
 import com.shzlabs.mamopay.util.display.Toaster
 import com.shzlabs.mamopay.util.logger.Logger
+import kotlinx.coroutines.delay
 import javax.inject.Inject
 
-class DashboardViewModel @Inject constructor (val dataManager: DataManager) : BaseViewModel(){
+class DashboardViewModel @Inject constructor (private val dataManager: DataManager) : BaseViewModel(){
 
     private val _transactionData = MutableLiveData<List<TransactionModel>>()
+    private val _balance = MutableLiveData<Long>()
+    private val _currency = MutableLiveData<String>()
+    private val _onMoneyAdded = LiveEvent<Int>()
 
     val transactionData: LiveData<List<TransactionModel>>
         get() = _transactionData
 
-    fun getTransactionData() {
+    val balanceData: LiveData<Long>
+        get() = _balance
 
+    val currency: LiveData<String>
+        get() = _currency
+
+    val onMoneyAdded: LiveEvent<Int>
+        get() = _onMoneyAdded
+
+
+    init {
+        _balance.value = 2000
+        _currency.value = "AED"
+    }
+
+    fun getTransactionData() {
         ioLaunch(
             block = {
                 var data = dataManager.getTransactionData()
@@ -32,23 +51,33 @@ class DashboardViewModel @Inject constructor (val dataManager: DataManager) : Ba
                     data = dataManager.getTransactionData()
                 }
 
-                return@ioLaunch data
+                data
             },
             onSuccess = {
-                Logger.d(DashboardViewModel::class.java.simpleName, "Item count ${it.size}")
                 _transactionData.value = it
             }
         )
+    }
 
-        /*ioLaunch(
+    fun addMoney(amount: Int) {
+        ioLaunch(
             block = {
-                dataManager.getTransactionData()
+                // TODO: interviewer review
+                dataManager.addMoney()
             },
             onSuccess = {
-                _sampleData.value = it
-            }
-        )*/
+                _onMoneyAdded.value = amount
 
+                val balance = _balance.value
+
+                // TODO: interviewer review
+                _balance.value = if (balance == null) { amount.toLong() } else { balance + amount }
+
+            },
+            onFailure = {
+                _onError.value = "Error adding money"
+            }
+        )
     }
 
 }

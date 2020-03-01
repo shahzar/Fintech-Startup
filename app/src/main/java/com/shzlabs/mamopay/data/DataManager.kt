@@ -35,4 +35,8 @@ class DataManager @Inject constructor(private val remoteDataSrc: ApiService, pri
         localDataSrc.transactionDao().insert(transactionModel)
     }
 
+    suspend fun addMoney() = safeApiCall {
+        remoteDataSrc.getSampleData()
+    }
+
 }

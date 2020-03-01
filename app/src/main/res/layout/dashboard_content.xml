@@ -108,7 +108,7 @@
         style="@style/AppTheme.Body1.m"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/label_add_money"
+        android:text="@string/label_send_money"
         android:textColor="@color/white100"
         android:layout_marginTop="@dimen/margin_s"
         app:layout_constraintTop_toBottomOf="@id/send_money"

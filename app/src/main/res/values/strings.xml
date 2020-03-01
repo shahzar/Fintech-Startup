@@ -31,8 +31,16 @@
     <string name="err_login_failed">Login failed</string>
     <string name="err_fingerprint_setup_system">Biometric not setup on system</string>
     <string name="label_add_money">Add money</string>
+    <string name="label_send_money">Send money</string>
     <string name="label_more">More</string>
     <string name="label_received">Received</string>
     <string name="label_sent">Sent</string>
+
+    <!--  Notification  -->
+    <string name="val_channel_gen_id">213</string>
+    <string name="val_channel_gen_name">ChannelName</string>
+    <string name="label_notification_title_money_added">Money added</string>
+    <string name="label_notification_desc_money_added">%1$s %2$s has been added to your account</string>
+
 
 </resources>
