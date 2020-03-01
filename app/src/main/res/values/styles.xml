@@ -11,6 +11,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/white100</item>
     </style>
 
     <style name="AppTheme.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -51,6 +52,14 @@
 
     <style name="AppTheme.Button" parent="Widget.MaterialComponents.Button.UnelevatedButton">
         <item name="android:textColor">@color/white100</item>
+        <item name="shapeAppearanceOverlay">@style/AppTheme.Button.ShapeAppearance</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="AppTheme.Button.Light" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="backgroundTint">@color/colorAccentTitanWhite</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="rippleColor">@color/colorAccent</item>
         <item name="shapeAppearanceOverlay">@style/AppTheme.Button.ShapeAppearance</item>
         <item name="android:textAllCaps">false</item>
     </style>

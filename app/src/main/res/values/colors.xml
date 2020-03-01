@@ -3,7 +3,9 @@
     <color name="colorPrimary">#3333FF</color>
     <color name="colorPrimaryLight">#6666FF</color>
     <color name="colorPrimaryDark">#0000CC</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorSecondary">#FF0066</color>
+    <color name="colorAccent">#A39DD7</color>
+    <color name="colorAccentTitanWhite">#E9EFFF</color>
 
 
     <color name="black100">#000000</color>

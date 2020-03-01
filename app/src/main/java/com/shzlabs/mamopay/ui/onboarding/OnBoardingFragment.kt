@@ -73,7 +73,7 @@ class OnBoardingFragment : BaseFragment() {
         viewModel.onError.observe(viewLifecycleOwner, Observer { showError(rootView, it) })
     }
 
-    fun enablePostAuthorizationFlows(firstLogin: Boolean = false) {
+    private fun enablePostAuthorizationFlows(firstLogin: Boolean = false) {
         if (GoogleAuthHelper.isLoggedIn(userPreferences.getAuthState())) {
             NavHelper
                 .pushFragment(activity as BaseActivity, OnBoardingDetailsFragment.newInstance())
