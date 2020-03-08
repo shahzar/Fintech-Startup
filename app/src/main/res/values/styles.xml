@@ -12,6 +12,8 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/white100</item>
+        <item name="android:fontFamily">@font/open_sans</item>
+        <item name="fontFamily">@font/open_sans</item>
     </style>
 
     <style name="AppTheme.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -25,6 +27,13 @@
 
     <style name="AppTheme.Headline.H3" parent="TextAppearance.MaterialComponents.Headline3">
         <item name="android:textSize">@dimen/font_headline_h3</item>
+        <item name="android:textColor">@color/black100</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:lineSpacingExtra">@dimen/margin_s</item>
+    </style>
+
+    <style name="AppTheme.Headline.H2" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="android:textSize">@dimen/font_headline_h2</item>
         <item name="android:textColor">@color/black100</item>
         <item name="android:textStyle">bold</item>
         <item name="android:lineSpacingExtra">@dimen/margin_s</item>
