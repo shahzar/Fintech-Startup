@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.View
 import android.widget.LinearLayout
 import com.shzlabs.mamopay.R
+import com.shzlabs.mamopay.util.common.HapticUtil
 
 class StepLayout(context: Context?, attrs: AttributeSet?) : LinearLayout(context, attrs) {
 
@@ -45,12 +46,14 @@ class StepLayout(context: Context?, attrs: AttributeSet?) : LinearLayout(context
         for (v:View in viewList) {
             v.setBackgroundColor(context.resources.getColor(colorStateSuccess))
         }
+        HapticUtil.numCodeSuccess(context)
     }
 
     fun setError() {
         for (v:View in viewList) {
             v.setBackgroundColor(context.resources.getColor(colorStateError))
         }
+        HapticUtil.numCodeFailure(context)
     }
 
     fun setActiveCount(count: Int) {

@@ -18,6 +18,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <me.relex.circleindicator.CircleIndicator3
+        android:id="@+id/indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        app:ci_drawable="@drawable/bg_indicator_active"
+        app:ci_drawable_unselected="@drawable/bg_indicator_inactive"
+        app:layout_constraintTop_toBottomOf="@id/guideline_indicator"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/login_google"
         android:layout_width="0dp"
@@ -29,6 +39,7 @@
         app:icon="@drawable/ic_google"
         app:iconTint="@null"
         app:iconGravity="textStart"
+        android:textStyle="bold"
         style="@style/AppTheme.Button.Light" />
 
     <com.google.android.material.button.MaterialButton
@@ -41,6 +52,7 @@
         app:layout_constraintEnd_toStartOf="@id/register"
         app:layout_constraintStart_toStartOf="@id/guideline_start"
         app:layout_constraintTop_toBottomOf="@id/login_google"
+        android:textStyle="bold"
         style="@style/AppTheme.Button.Light"/>
 
     <com.google.android.material.button.MaterialButton
@@ -52,6 +64,7 @@
         app:layout_constraintEnd_toEndOf="@id/guideline_end"
         app:layout_constraintStart_toEndOf="@id/login"
         app:layout_constraintTop_toTopOf="@id/login"
+        android:textStyle="bold"
         style="@style/AppTheme.Button.Light"/>
 
     <androidx.constraintlayout.widget.Guideline
@@ -60,6 +73,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.75" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.50" />
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_start"

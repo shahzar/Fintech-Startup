@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
 import com.shzlabs.mamopay.R
+import com.shzlabs.mamopay.util.common.HapticUtil
 import kotlinx.android.synthetic.main.numpad_layout.view.*
 
 class NumpadLayout(context: Context?, attrs: AttributeSet?) : LinearLayout(context, attrs) {
@@ -49,6 +50,7 @@ class NumpadLayout(context: Context?, attrs: AttributeSet?) : LinearLayout(conte
         }
 
         onNumberPress?.invoke(value)
+        HapticUtil.numCodePress(view.context)
     }
 
     fun showDeleteButton(show: Boolean) {

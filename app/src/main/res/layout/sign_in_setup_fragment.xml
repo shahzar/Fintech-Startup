@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OnBoardingActivity">
+    tools:context=".OnBoardingActivity"
+    android:background="@color/black4">
 
     <TextView
         android:id="@+id/msg_label"

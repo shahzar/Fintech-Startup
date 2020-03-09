@@ -41,6 +41,7 @@ class OnBoardingFragment : BaseFragment() {
 
         //slider_viewpager.layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.HORIZONTAL, false)
         slider_viewpager.adapter = sliderAdapter
+        indicator.setViewPager(slider_viewpager)
 
         login_google.setOnClickListener {
             val intent = GoogleAuthHelper.initAuth(view.context)

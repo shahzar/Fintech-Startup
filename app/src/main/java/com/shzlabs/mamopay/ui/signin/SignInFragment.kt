@@ -1,11 +1,13 @@
 package com.shzlabs.mamopay.ui.signin
 
 import android.content.Context
+import android.content.Intent
 import android.view.View
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.shzlabs.mamopay.MainActivity
 import com.shzlabs.mamopay.util.navigation.NavHelper
 import com.shzlabs.mamopay.R
 import com.shzlabs.mamopay.di.components.AppComponent
@@ -115,8 +117,10 @@ class SignInFragment : BaseFragment() {
     }
 
     private fun navigateToDashboard() {
-        NavHelper
-            .pushFragment(activity as BaseActivity, HomeFragment.newInstance())
+//        NavHelper
+//            .pushFragment(activity as BaseActivity, HomeFragment.newInstance())
+        startActivity(Intent(context, MainActivity::class.java))
+        activity?.finish()
     }
 
     private fun getPromptInfo(): BiometricPrompt.PromptInfo {

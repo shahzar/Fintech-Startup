@@ -7,7 +7,6 @@ import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.shzlabs.mamopay.util.navigation.NavHelper
 import com.shzlabs.mamopay.R
 import com.shzlabs.mamopay.di.components.AppComponent
 import com.shzlabs.mamopay.ui.base.BaseActivity
@@ -15,6 +14,7 @@ import com.shzlabs.mamopay.ui.base.BaseFragment
 import com.shzlabs.mamopay.ui.signin.SignInFragment
 import com.shzlabs.mamopay.util.biometric.BiometricHelper
 import com.shzlabs.mamopay.util.display.Toaster
+import com.shzlabs.mamopay.util.navigation.NavHelper
 import kotlinx.android.synthetic.main.sign_in_setup_fragment.*
 import javax.inject.Inject
 

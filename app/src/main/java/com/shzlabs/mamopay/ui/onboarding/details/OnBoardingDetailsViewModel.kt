@@ -32,10 +32,12 @@ class OnBoardingDetailsViewModel @Inject constructor (val prefs: UserPreferences
 
         if (first.isNotEmpty()) {
             prefs.setFirstName(first)
+            _firstname.value = first
         }
 
         if (last.isNotEmpty()) {
             prefs.setLastName(last)
+            _lastname.value = last
         }
     }
 

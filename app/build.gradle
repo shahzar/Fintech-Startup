@@ -67,6 +67,7 @@ dependencies {
 
     implementation 'net.openid:appauth:0.7.1'
     implementation "com.github.hadilq.liveevent:liveevent:1.2.0"
+    implementation 'me.relex:circleindicator:2.1.4'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
