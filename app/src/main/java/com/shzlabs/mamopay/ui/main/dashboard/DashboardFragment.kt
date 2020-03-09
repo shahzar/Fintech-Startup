@@ -1,9 +1,11 @@
 package com.shzlabs.mamopay.ui.main.dashboard
 
+import android.content.res.Resources
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.shzlabs.mamopay.R
 import com.shzlabs.mamopay.di.components.AppComponent
 import com.shzlabs.mamopay.ui.base.BaseFragment
@@ -31,6 +33,11 @@ class DashboardFragment : BaseFragment() {
 
         transaction_list.layoutManager = LinearLayoutManager(rootView.context)
         transaction_list.adapter = transactionsAdapter
+
+        // Bottomsheet
+        val heightPixels = resources.displayMetrics.heightPixels
+        val peekHeight = heightPixels * 0.60
+        BottomSheetBehavior.from(bottom_sheet).peekHeight = peekHeight.toInt()
 
         add_money.setOnClickListener {
             addMoney()
