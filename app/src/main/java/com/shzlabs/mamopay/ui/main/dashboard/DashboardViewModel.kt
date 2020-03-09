@@ -21,6 +21,7 @@ class DashboardViewModel @Inject constructor (private val dataManager: DataManag
     private val _transactionData = MutableLiveData<List<TransactionModel>>()
     private val _balance = MutableLiveData<Long>()
     private val _currency = MutableLiveData<String>()
+    private val _moneyAddProgress = MutableLiveData<Boolean>()
     private val _onMoneyAdded = LiveEvent<Int>()
 
     val transactionData: LiveData<List<TransactionModel>>
@@ -31,6 +32,9 @@ class DashboardViewModel @Inject constructor (private val dataManager: DataManag
 
     val currency: LiveData<String>
         get() = _currency
+
+    val moneyAddProgress: MutableLiveData<Boolean>
+        get() = _moneyAddProgress
 
     val onMoneyAdded: LiveEvent<Int>
         get() = _onMoneyAdded
@@ -62,6 +66,7 @@ class DashboardViewModel @Inject constructor (private val dataManager: DataManag
     fun addMoney(amount: Int) {
 
         val balance = _balance.value
+        _moneyAddProgress.value = true
 
         ioLaunch(
             block = {
@@ -70,6 +75,7 @@ class DashboardViewModel @Inject constructor (private val dataManager: DataManag
             },
             onSuccess = {
                 _onMoneyAdded.value = amount
+                _moneyAddProgress.value = false
 
                 // TODO: interviewer review
                 _balance.value = if (balance == null) { amount.toLong() } else { balance + amount }
@@ -77,6 +83,7 @@ class DashboardViewModel @Inject constructor (private val dataManager: DataManag
             },
             onFailure = {
                 _onError.value = "Error adding money"
+                _moneyAddProgress.value = false
             }
         )
     }

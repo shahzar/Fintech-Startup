@@ -1,6 +1,5 @@
 package com.shzlabs.mamopay.ui.main.dashboard
 
-import android.content.res.Resources
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -52,6 +51,10 @@ class DashboardFragment : BaseFragment() {
             moneyAdded(it)
         })
 
+        viewModel.moneyAddProgress.observe(viewLifecycleOwner, Observer {
+            showAddMoneyProgress(it)
+        })
+
         viewModel.balanceData.observe(viewLifecycleOwner, Observer {
             amount.text = it.toString()
         })
@@ -88,7 +91,10 @@ class DashboardFragment : BaseFragment() {
             getString(R.string.label_notification_desc_money_added, viewModel.currency.value, amount.toString()))
     }
 
-
+    private fun showAddMoneyProgress(show: Boolean) {
+        progress_add_money.visibility = if (show) View.VISIBLE else View.INVISIBLE
+        add_money.visibility = if (show) View.INVISIBLE else View.VISIBLE
+    }
 
 }
 

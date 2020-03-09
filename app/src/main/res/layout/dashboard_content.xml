@@ -67,6 +67,16 @@
         android:layout_marginStart="@dimen/margin_l"
         app:icon="@drawable/ic_add_black_24dp" />
 
+    <ProgressBar
+        android:id="@+id/progress_add_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/add_money"
+        app:layout_constraintStart_toStartOf="@id/add_money"
+        app:layout_constraintEnd_toEndOf="@id/add_money"
+        app:layout_constraintBottom_toBottomOf="@id/add_money"
+        android:visibility="gone"/>
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/send_money"
         android:layout_width="@dimen/button_dashboard_actions"

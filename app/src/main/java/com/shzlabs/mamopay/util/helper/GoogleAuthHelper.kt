@@ -1,4 +1,4 @@
-package com.shzlabs.mamopay.helper
+package com.shzlabs.mamopay.util.helper
 
 import android.app.PendingIntent
 import android.content.Context

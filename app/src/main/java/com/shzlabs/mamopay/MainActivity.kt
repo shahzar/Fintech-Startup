@@ -20,10 +20,10 @@ class MainActivity : BaseActivity() {
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel::class.java)
 
         // Login check
-        if (!viewModel.isUserLoggedIn()) {
-            startActivity(Intent(this, OnBoardingActivity::class.java))
-            finish()
-        }
+//        if (!viewModel.isUserLoggedIn()) {
+//            startActivity(Intent(this, OnBoardingActivity::class.java))
+//            finish()
+//        }
 
         NavHelper.pushFragment(this, DashboardFragment.newInstance())
     }

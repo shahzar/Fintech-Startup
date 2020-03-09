@@ -3,7 +3,9 @@ package com.shzlabs.mamopay.data
 import com.shzlabs.mamopay.data.local.database.DatabaseService
 import com.shzlabs.mamopay.data.model.TransactionModel
 import com.shzlabs.mamopay.data.repository.ApiService
+import com.shzlabs.mamopay.util.config.AppConfig
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 import java.io.IOException
@@ -36,6 +38,8 @@ class DataManager @Inject constructor(private val remoteDataSrc: ApiService, pri
     }
 
     suspend fun addMoney() = safeApiCall {
+        //TODO: interviewer review
+        delay(AppConfig.NETWORK_DELAY)
         remoteDataSrc.getSampleData()
     }
 

@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.shzlabs.mamopay.R
 import com.shzlabs.mamopay.data.local.prefs.UserPreferences
 import com.shzlabs.mamopay.di.components.AppComponent
-import com.shzlabs.mamopay.helper.GoogleAuthHelper
+import com.shzlabs.mamopay.util.helper.GoogleAuthHelper
 import com.shzlabs.mamopay.ui.base.BaseActivity
 import com.shzlabs.mamopay.ui.base.BaseFragment
 import com.shzlabs.mamopay.ui.home.OnBoardingViewModel
