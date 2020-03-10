@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.util.Log
+import com.shzlabs.mamopay.util.config.AppConfig
 import net.openid.appauth.*
 import org.json.JSONException
 
@@ -18,7 +19,7 @@ object GoogleAuthHelper {
             Uri.parse("https://www.googleapis.com/oauth2/v4/token") /* token endpoint */
         )
 
-        val clientId = "565425653866-gedp0mqqrtent8un9tiadif53jkvgre5.apps.googleusercontent.com"
+        val clientId = AppConfig.GOOGLE_CLIENT_ID
 
         val redirectUri = Uri.parse("com.shzlabs.mamopay:/oauth2callback")
         val builder = AuthorizationRequest.Builder(

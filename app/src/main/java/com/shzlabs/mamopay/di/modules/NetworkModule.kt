@@ -2,6 +2,7 @@ package com.shzlabs.mamopay.di.modules
 
 import com.google.gson.GsonBuilder
 import com.shzlabs.mamopay.data.repository.ApiService
+import com.shzlabs.mamopay.util.config.AppConfig
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -12,7 +13,6 @@ import javax.inject.Singleton
 @Module
 class NetworkModule {
 
-    val BASE_URL = "https://jsonplaceholder.typicode.com/"
 
 
     @Singleton
@@ -20,7 +20,7 @@ class NetworkModule {
     fun provideApiService(okHttpClient: OkHttpClient, gsonConverterFactory: GsonConverterFactory): ApiService {
 
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(AppConfig.BASE_URL)
             .addConverterFactory(gsonConverterFactory)
             .client(okHttpClient)
             .build().create(ApiService::class.java)
