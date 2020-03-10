@@ -26,7 +26,7 @@
         <activity
             android:name=".OnBoardingActivity"
             android:windowSoftInputMode="adjustResize" />
-        <activity
+        <!--<activity
             android:name="net.openid.appauth.RedirectUriReceiverActivity"
             android:screenOrientation="portrait"
             tools:node="replace">
@@ -38,7 +38,7 @@
 
                 <data android:scheme="com.shzlabs.mamopay" />
             </intent-filter>
-        </activity>
+        </activity>-->
     </application>
 
 </manifest>
