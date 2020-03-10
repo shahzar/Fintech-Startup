@@ -1,5 +1,6 @@
 package com.shzlabs.mamopay.ui.onboarding
 
+import android.content.Context
 import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.shzlabs.mamopay.R
 import com.shzlabs.mamopay.data.model.IntroSliderItemModel
 
@@ -15,9 +18,19 @@ class SliderAdapter : RecyclerView.Adapter<SliderAdapter.SliderViewHolder>() {
     var items : MutableList<IntroSliderItemModel> = mutableListOf()
 
     init {
-        items.add(IntroSliderItemModel(R.drawable.ic_onboarding_1, "Connect your bank account"))
-        items.add(IntroSliderItemModel(R.drawable.ic_onboarding_2, "Send money instantly"))
-        items.add(IntroSliderItemModel(R.drawable.ic_onboarding_3, "No fees, No IBANs, No Cash"))
+        items.add(IntroSliderItemModel(0, "https://i.ibb.co/Sdgnfgp/Onboarding-1.png", "Connect your bank account"))
+        items.add(IntroSliderItemModel(0, "https://i.ibb.co/4sdHVD2/Onboarding-2.png", "Send money instantly"))
+        items.add(IntroSliderItemModel(0, "https://i.ibb.co/k24jC2r/Onboarding-3.png", "No fees, No IBANs, No Cash"))
+    }
+
+    fun precacheImages(context: Context) {
+        //TODO: interviewer review
+        items.forEach {
+            Glide.with(context)
+                .load(it.imageUrl)
+                .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+                .preload()
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SliderViewHolder {
@@ -38,7 +51,10 @@ class SliderAdapter : RecyclerView.Adapter<SliderAdapter.SliderViewHolder>() {
 
         fun bind(model: IntroSliderItemModel) {
             itemView.findViewById<TextView>(R.id.text).text = model.introText
-            itemView.findViewById<ImageView>(R.id.image).setImageResource(model.imageRef)
+            Glide.with(itemView.context)
+                .load(model.imageUrl)
+                .placeholder(R.drawable.ic_onboarding_1)
+                .into(itemView.findViewById(R.id.image))
         }
     }
 }

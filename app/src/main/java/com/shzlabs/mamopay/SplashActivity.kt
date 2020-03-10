@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.shzlabs.mamopay.ui.base.BaseActivity
+import com.shzlabs.mamopay.util.common.OnBoardingData
 
 class SplashActivity : BaseActivity() {
 

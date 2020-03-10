@@ -41,6 +41,9 @@
     <string name="val_channel_gen_name">ChannelName</string>
     <string name="label_notification_title_money_added">Money added</string>
     <string name="label_notification_desc_money_added">%1$s %2$s has been added to your account</string>
+    <string name="page_title_confirm_name">Confirm name</string>
+    <string name="page_title_pin_setup">Choose PIN code</string>
+    <string name="page_title_pin_setup_confirm">Confirm PIN code</string>
 
 
 </resources>

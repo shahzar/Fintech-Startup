@@ -2,13 +2,14 @@ package com.shzlabs.mamopay.ui.base
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
+import com.shzlabs.mamopay.R
 import com.shzlabs.mamopay.di.ViewModelFactory
 import com.shzlabs.mamopay.di.components.AppComponent
 import javax.inject.Inject
@@ -42,6 +43,17 @@ abstract class BaseFragment: Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         //setupObservers()
+    }
+
+    fun setToolbarTitle(title: String) {
+        val titleTv = rootView.findViewById<TextView>(R.id.toolbar_title)
+        titleTv.text = title
+        val back = rootView.findViewById<View>(R.id.back)
+        back.setOnClickListener { goBack() }
+    }
+
+    fun goBack() {
+        (activity as BaseActivity).onBackPressed()
     }
 
     protected open fun setupObservers() {}

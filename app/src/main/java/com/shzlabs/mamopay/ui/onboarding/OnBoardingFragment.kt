@@ -40,6 +40,7 @@ class OnBoardingFragment : BaseFragment() {
 
 
         //slider_viewpager.layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.HORIZONTAL, false)
+        sliderAdapter.precacheImages(view.context)
         slider_viewpager.adapter = sliderAdapter
         indicator.setViewPager(slider_viewpager)
 
@@ -52,7 +53,7 @@ class OnBoardingFragment : BaseFragment() {
 
     override fun onStart() {
         super.onStart()
-        enablePostAuthorizationFlows()
+        //enablePostAuthorizationFlows()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

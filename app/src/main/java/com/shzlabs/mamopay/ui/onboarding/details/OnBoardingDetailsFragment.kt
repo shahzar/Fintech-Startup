@@ -27,6 +27,9 @@ class OnBoardingDetailsFragment : BaseFragment() {
     override fun provideLayoutId(): Int = R.layout.on_boarding_details_fragment
 
     override fun initView(view: View) {
+
+        setToolbarTitle(getString(R.string.page_title_confirm_name))
+
         confirm_button.setOnClickListener {
             confirmChanges()
         }

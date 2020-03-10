@@ -44,6 +44,8 @@ class SignInSetupFragment : BaseFragment() {
 
     override fun initView(view: View) {
 
+        setToolbarTitle(getString(R.string.page_title_pin_setup))
+
         numpad.setOnNumberPressListener {
             viewModel.onNumberPress(it)
         }
@@ -95,6 +97,7 @@ class SignInSetupFragment : BaseFragment() {
     }
 
     private fun setConfirmScreen(pinCode: String) {
+        setToolbarTitle(getString(R.string.page_title_pin_setup_confirm))
         viewModel.setConfirmCode(pinCode)
         numpad.showFingerprintButton(false)
         msg_label.text = resources.getString(R.string.msg_confirm_pin)
