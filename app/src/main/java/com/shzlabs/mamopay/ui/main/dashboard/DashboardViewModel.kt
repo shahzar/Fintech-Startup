@@ -1,25 +1,19 @@
 package com.shzlabs.mamopay.ui.main.dashboard
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.hadilq.liveevent.LiveEvent
 import com.shzlabs.mamopay.data.DataManager
-import com.shzlabs.mamopay.data.local.database.DatabaseService
-import com.shzlabs.mamopay.data.model.SampleDataModel
 import com.shzlabs.mamopay.data.model.TransactionModel
 import com.shzlabs.mamopay.data.seed.SeedTransactionData
-import com.shzlabs.mamopay.di.components.AppComponent
 import com.shzlabs.mamopay.ui.base.BaseViewModel
-import com.shzlabs.mamopay.util.display.Toaster
-import com.shzlabs.mamopay.util.logger.Logger
-import kotlinx.coroutines.delay
 import javax.inject.Inject
 
 class DashboardViewModel @Inject constructor (private val dataManager: DataManager) : BaseViewModel(){
 
     private val _transactionData = MutableLiveData<List<TransactionModel>>()
     private val _balance = MutableLiveData<Long>()
+    private val _balanceFetchComplete = LiveEvent<Long>()
     private val _currency = MutableLiveData<String>()
     private val _moneyAddProgress = MutableLiveData<Boolean>()
     private val _onMoneyAdded = LiveEvent<Int>()
@@ -29,6 +23,9 @@ class DashboardViewModel @Inject constructor (private val dataManager: DataManag
 
     val balanceData: LiveData<Long>
         get() = _balance
+
+    val balanceFetchComplete: LiveData<Long>
+        get() = _balanceFetchComplete
 
     val currency: LiveData<String>
         get() = _currency
@@ -41,8 +38,19 @@ class DashboardViewModel @Inject constructor (private val dataManager: DataManag
 
 
     init {
-        _balance.value = 2000
         _currency.value = "AED"
+    }
+
+    fun fetchBalance() {
+        ioLaunch(
+            block = {
+                dataManager.fetchUserBalance()
+            },
+            onSuccess = {
+                _balanceFetchComplete.value = 2000
+                _balance.value = 2000
+            }
+        )
     }
 
     fun getTransactionData() {
@@ -65,7 +73,6 @@ class DashboardViewModel @Inject constructor (private val dataManager: DataManag
 
     fun addMoney(amount: Int) {
 
-        val balance = _balance.value
         _moneyAddProgress.value = true
 
         ioLaunch(
@@ -78,6 +85,7 @@ class DashboardViewModel @Inject constructor (private val dataManager: DataManag
                 _moneyAddProgress.value = false
 
                 // TODO: interviewer review
+                val balance = _balance.value
                 _balance.value = if (balance == null) { amount.toLong() } else { balance + amount }
 
             },

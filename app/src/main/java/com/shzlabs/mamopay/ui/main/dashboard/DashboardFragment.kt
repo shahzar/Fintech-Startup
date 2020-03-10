@@ -59,6 +59,10 @@ class DashboardFragment : BaseFragment() {
             amount.text = it.toString()
         })
 
+        viewModel.balanceFetchComplete.observe(viewLifecycleOwner, Observer {
+            progress_amount.visibility = View.GONE
+        })
+
         viewModel.transactionData.observe(viewLifecycleOwner, Observer {
             transactionsAdapter.updateItems(it)
         })
@@ -66,6 +70,7 @@ class DashboardFragment : BaseFragment() {
         viewModel.onError.observe(viewLifecycleOwner, Observer { showError(rootView, it) })
 
         viewModel.getTransactionData()
+        viewModel.fetchBalance()
     }
 
     private fun addMoney() {

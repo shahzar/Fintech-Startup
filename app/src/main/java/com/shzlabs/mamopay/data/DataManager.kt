@@ -37,7 +37,11 @@ class DataManager @Inject constructor(private val remoteDataSrc: ApiService, pri
         localDataSrc.transactionDao().insert(transactionModel)
     }
 
-    suspend fun addMoney() = safeApiCall {
+    suspend fun fetchUserBalance() = getFakeData()
+
+    suspend fun addMoney() = getFakeData()
+
+    private suspend fun getFakeData() = safeApiCall {
         //TODO: interviewer review
         delay(AppConfig.NETWORK_DELAY)
         remoteDataSrc.getSampleData()
